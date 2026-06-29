@@ -127,7 +127,10 @@
 
   /* PAGE HEADER (detail pages) */
   .phead{background:var(--ink);color:var(--bone);padding:calc(64px + clamp(3rem,7vh,5.5rem)) 0 clamp(3rem,7vh,5.5rem);position:relative;overflow:hidden;}
-  .phead .pimg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(1) brightness(.55);opacity:.22;}
+  .phead .pimg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(.8) sepia(.22) brightness(.55) contrast(1.05);opacity:.5;}
+  @keyframes heroZoom{from{transform:scale(1.14);}to{transform:scale(1);}}
+  .js .page.active .phead .pimg{animation:heroZoom 16s ease-out both;}
+  @media (prefers-reduced-motion:reduce){.js .page.active .phead .pimg{animation:none;}}
   .phead::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,var(--ink) 50%,rgba(23,24,27,.5));}
   .phead .wrap{position:relative;z-index:2;}
   .phead .pn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--gold-lt);font-size:.95rem;letter-spacing:.04em;margin-bottom:1rem;}
@@ -307,6 +310,14 @@
   .js .disc-item.active .dn{color:var(--ink);}
   .js .disc-item.active .dt{writing-mode:horizontal-tb;margin:1rem 0 0;font-size:1.95rem;color:var(--ink);white-space:normal;letter-spacing:-.03em;}
   .js .disc-item.active .dd{opacity:1;display:block;color:rgba(23,24,27,.82);pointer-events:auto;}
+  .disc-item .di-ic{display:block;width:26px;height:26px;color:var(--gold-lt);margin:.9rem 0 0;transition:color .4s,width .4s,height .4s;}
+  .disc-item .di-ic svg{width:100%;height:100%;display:block;}
+  .js .disc-item.active .di-ic{color:var(--ink);width:30px;height:30px;}
+  .js .disc.disc-exp{min-height:480px;}
+  .disc.disc-exp .disc-item .dt{font-size:1.05rem;}
+  .js .disc.disc-exp .disc-item .dt{font-size:.95rem;}
+  .js .disc.disc-exp .disc-item.active .dt{font-size:1.7rem;}
+  .disc.disc-exp .disc-item{padding:1.8rem 1.3rem;}
 
 
   /* service feature: lead line + interactive chips */
@@ -331,6 +342,9 @@
   @media(max-width:860px){
     .disc{grid-template-columns:1fr;}
     .js .disc{flex-direction:column;min-height:0;}
+    .js .disc.disc-exp{min-height:0;}
+    .js .disc.disc-exp .disc-item .dt{font-size:1.25rem;}
+    .js .disc.disc-exp .disc-item.active .dt{font-size:1.45rem;}
     .js .disc-item{flex:none;padding:1.6rem;}
     .js .disc-item .dt{writing-mode:horizontal-tb;margin:.55rem 0 0;white-space:normal;font-size:1.4rem;}
     .js .disc-item.active{flex:none;}
@@ -592,35 +606,35 @@
     <div class="wrap">
       <div class="pgroup">
         <h3>Industry Practices</h3>
-        <div class="pgrid">
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 4l9 5"/><path d="M5 9v8M9.5 9v8M14.5 9v8M19 9v8"/><path d="M3 20h18"/></svg></span><div class="pcn">01</div><h4>Financial Services</h4><p>Banks, NBFCs, insurers, asset and fund management.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8.5v7M8.5 12h7"/></svg></span><div class="pcn">02</div><h4>Healthcare and Life Sciences</h4><p>Pharmaceuticals, hospitals, devices and regulated life sciences.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.1"/><path d="M12 2.5v2.6M12 18.9v2.6M4.4 4.4l1.85 1.85M17.75 17.75 19.6 19.6M2.5 12h2.6M18.9 12h2.6M4.4 19.6l1.85-1.85M17.75 6.25 19.6 4.4"/></svg></span><div class="pcn">03</div><h4>Industrial and Manufacturing</h4><p>Capital goods, infrastructure and engineering led enterprises.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3"/></svg></span><div class="pcn">04</div><h4>Technology and Communications</h4><p>Software, IT services, telecom and digital businesses.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.1 11.2a1 1 0 0 1-1 .8H8.1a1 1 0 0 1-1-.8L6 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><div class="pcn">05</div><h4>Consumer, Retail and Services</h4><p>Branded consumer, retail and fast moving consumer goods.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c8 1 13.5-4 14.5-14.5C9 5.5 4 10.5 5 19Z"/><path d="M5.5 18.5C7.5 13.5 10.5 10.5 15 8.5"/></svg></span><div class="pcn">06</div><h4>Energy and Natural Resources</h4><p>Conventional and renewable energy, utilities and resources.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V3"/><path d="M6 4h11l-2.4 3.3L17 10.6H6"/></svg></span><div class="pcn">07</div><h4>Government and Not for Profit</h4><p>Public institutions and not for profit organisations.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M8 20h8M5 7h14M12 4 6.5 6 12 4l5.5 2"/><path d="M6 7 3.7 12a2.6 2.6 0 0 0 4.6 0L6 7ZM18 7l-2.3 5a2.6 2.6 0 0 0 4.6 0L18 7Z"/></svg></span><div class="pcn">08</div><h4>Professional and Regulated Services</h4><p>Listed and regulated services where governance is mission critical.</p></div>
+        <div class="disc disc-exp">
+          <div class="disc-item active" role="button" tabindex="0" aria-label="Financial Services"><span class="dn">01</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 4l9 5"/><path d="M5 9v8M9.5 9v8M14.5 9v8M19 9v8"/><path d="M3 20h18"/></svg></span><span class="dt">Financial Services</span><span class="dd">Banks, NBFCs, insurers, asset and fund management.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Healthcare and Life Sciences"><span class="dn">02</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8.5v7M8.5 12h7"/></svg></span><span class="dt">Healthcare and Life Sciences</span><span class="dd">Pharmaceuticals, hospitals, devices and regulated life sciences.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Industrial and Manufacturing"><span class="dn">03</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.1"/><path d="M12 2.5v2.6M12 18.9v2.6M4.4 4.4l1.85 1.85M17.75 17.75 19.6 19.6M2.5 12h2.6M18.9 12h2.6M4.4 19.6l1.85-1.85M17.75 6.25 19.6 4.4"/></svg></span><span class="dt">Industrial and Manufacturing</span><span class="dd">Capital goods, infrastructure and engineering led enterprises.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Technology and Communications"><span class="dn">04</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3"/></svg></span><span class="dt">Technology and Communications</span><span class="dd">Software, IT services, telecom and digital businesses.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Consumer, Retail and Services"><span class="dn">05</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.1 11.2a1 1 0 0 1-1 .8H8.1a1 1 0 0 1-1-.8L6 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span class="dt">Consumer, Retail and Services</span><span class="dd">Branded consumer, retail and fast moving consumer goods.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Energy and Natural Resources"><span class="dn">06</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c8 1 13.5-4 14.5-14.5C9 5.5 4 10.5 5 19Z"/><path d="M5.5 18.5C7.5 13.5 10.5 10.5 15 8.5"/></svg></span><span class="dt">Energy and Natural Resources</span><span class="dd">Conventional and renewable energy, utilities and resources.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Government and Not for Profit"><span class="dn">07</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V3"/><path d="M6 4h11l-2.4 3.3L17 10.6H6"/></svg></span><span class="dt">Government and Not for Profit</span><span class="dd">Public institutions and not for profit organisations.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Professional and Regulated Services"><span class="dn">08</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M8 20h8M5 7h14M12 4 6.5 6 12 4l5.5 2"/><path d="M6 7 3.7 12a2.6 2.6 0 0 0 4.6 0L6 7ZM18 7l-2.3 5a2.6 2.6 0 0 0 4.6 0L18 7Z"/></svg></span><span class="dt">Professional and Regulated Services</span><span class="dd">Listed and regulated services where governance is mission critical.</span></div>
         </div>
       </div>
 
       <div class="pgroup">
         <h3>Functional Practices</h3>
-        <div class="pgrid">
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.6"/><path d="M3.8 19c0-2.9 2.3-5.2 5.2-5.2s5.2 2.3 5.2 5.2"/><circle cx="16.8" cy="10.2" r="2"/><path d="M15.4 14.2c2.5.2 4.4 2.3 4.4 4.8"/></svg></span><div class="pcn">01</div><h4>Board and CEO Services</h4><p>Director search, board composition, evaluation and succession.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="6" y="11" width="3" height="6" rx="0.5"/><rect x="10.5" y="7" width="3" height="10" rx="0.5"/><rect x="15" y="13.5" width="3" height="3.5" rx="0.5"/></svg></span><div class="pcn">02</div><h4>Financial Officers</h4><p>CFO and finance leadership for boards and audit committees.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01M16 7h2M16 17h2"/></svg></span><div class="pcn">03</div><h4>Information Technology Officers</h4><p>CIO, CTO and technology leadership for the modern board.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h6.5L18 7.5V21H7z"/><path d="M13.5 3v4.5H18"/><path d="M9.6 14.4l1.7 1.7 3.3-3.6"/></svg></span><div class="pcn">04</div><h4>Compensation and Policy</h4><p>Benchmarked compensation, charters and governance frameworks.</p></div>
+        <div class="disc disc-exp">
+          <div class="disc-item active" role="button" tabindex="0" aria-label="Board and CEO Services"><span class="dn">01</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.6"/><path d="M3.8 19c0-2.9 2.3-5.2 5.2-5.2s5.2 2.3 5.2 5.2"/><circle cx="16.8" cy="10.2" r="2"/><path d="M15.4 14.2c2.5.2 4.4 2.3 4.4 4.8"/></svg></span><span class="dt">Board and CEO Services</span><span class="dd">Director search, board composition, evaluation and succession.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Financial Officers"><span class="dn">02</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="6" y="11" width="3" height="6" rx="0.5"/><rect x="10.5" y="7" width="3" height="10" rx="0.5"/><rect x="15" y="13.5" width="3" height="3.5" rx="0.5"/></svg></span><span class="dt">Financial Officers</span><span class="dd">CFO and finance leadership for boards and audit committees.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Information Technology Officers"><span class="dn">03</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01M16 7h2M16 17h2"/></svg></span><span class="dt">Information Technology Officers</span><span class="dd">CIO, CTO and technology leadership for the modern board.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Compensation and Policy"><span class="dn">04</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h6.5L18 7.5V21H7z"/><path d="M13.5 3v4.5H18"/><path d="M9.6 14.4l1.7 1.7 3.3-3.6"/></svg></span><span class="dt">Compensation and Policy</span><span class="dd">Benchmarked compensation, charters and governance frameworks.</span></div>
         </div>
       </div>
 
       <div class="pgroup">
         <h3>Specialty Practices</h3>
-        <div class="pgrid">
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5.2" cy="18" r="2"/><circle cx="18.8" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><path d="M12 7v3M10.4 13.4 6.6 16.4M13.6 13.4l3.8 3"/></svg></span><div class="pcn">01</div><h4>AI and ML Governance</h4><p>Board oversight for technology and AI led transformation.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="2.1"/><circle cx="17" cy="8" r="2.1"/><circle cx="12" cy="13.2" r="1.9"/><path d="M3.6 17.8c0-1.9 1.5-3.4 3.4-3.4M17 14.4c1.9 0 3.4 1.5 3.4 3.4M9 19c0-1.7 1.3-3 3-3s3 1.3 3 3"/></svg></span><div class="pcn">02</div><h4>Family Boards and Councils</h4><p>Independent members for family boards and councils.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5 16l4-4 3 2 6-7"/><path d="M15 7h4v4"/></svg></span><div class="pcn">03</div><h4>IPO and Capital Markets Readiness</h4><p>Board readiness for listing and institutional capital.</p></div>
-          <div class="pc"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 7.7-7 9-4-1.3-7-4.6-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="pcn">04</div><h4>Those Charged With Governance</h4><p>Emerging governance constructs and pre audit engagement.</p></div>
+        <div class="disc disc-exp">
+          <div class="disc-item active" role="button" tabindex="0" aria-label="AI and ML Governance"><span class="dn">01</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5.2" cy="18" r="2"/><circle cx="18.8" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><path d="M12 7v3M10.4 13.4 6.6 16.4M13.6 13.4l3.8 3"/></svg></span><span class="dt">AI and ML Governance</span><span class="dd">Board oversight for technology and AI led transformation.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Family Boards and Councils"><span class="dn">02</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="2.1"/><circle cx="17" cy="8" r="2.1"/><circle cx="12" cy="13.2" r="1.9"/><path d="M3.6 17.8c0-1.9 1.5-3.4 3.4-3.4M17 14.4c1.9 0 3.4 1.5 3.4 3.4M9 19c0-1.7 1.3-3 3-3s3 1.3 3 3"/></svg></span><span class="dt">Family Boards and Councils</span><span class="dd">Independent members for family boards and councils.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="IPO and Capital Markets Readiness"><span class="dn">03</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5 16l4-4 3 2 6-7"/><path d="M15 7h4v4"/></svg></span><span class="dt">IPO and Capital Markets Readiness</span><span class="dd">Board readiness for listing and institutional capital.</span></div>
+          <div class="disc-item" role="button" tabindex="0" aria-label="Those Charged With Governance"><span class="dn">04</span><span class="di-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 7.7-7 9-4-1.3-7-4.6-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="dt">Those Charged With Governance</span><span class="dd">Emerging governance constructs and pre audit engagement.</span></div>
         </div>
       </div>
     </div>
@@ -649,7 +663,7 @@
 <!-- ====================== OFFICES ====================== -->
 <section class="page" id="page-offices">
   <div class="phead">
-    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=70')"></div>
     <div class="wrap">
       <div class="pn">Offices</div>
       <h1>Global reach, local board judgement.</h1>
@@ -690,7 +704,7 @@
 <!-- ====================== INSIGHTS ====================== -->
 <section class="page" id="page-insights">
   <div class="phead">
-    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=70')"></div>
     <div class="wrap">
       <div class="pn">Insights</div>
       <h1>Introduced by our thinking.</h1>
@@ -719,7 +733,7 @@
 <!-- ====================== CONTACT ====================== -->
 <section class="page" id="page-contact">
   <div class="phead">
-    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1600&q=70')"></div>
     <div class="wrap">
       <div class="pn">Contact</div>
       <h1>Request an introduction.</h1>
@@ -873,9 +887,8 @@
     if(shots.length>1){setInterval(()=>{shots[i].classList.remove('active');i=(i+1)%shots.length;shots[i].classList.add('active');},6000);}
   }
 
-  // interactive disciplines
-  (function(){
-    var d=document.getElementById('disc'); if(!d) return;
+  // interactive expanding panels (disciplines + every expertise practice group)
+  [].forEach.call(document.querySelectorAll('.disc'),function(d){
     var items=[].slice.call(d.querySelectorAll('.disc-item'));
     function set(el){items.forEach(function(x){x.classList.toggle('active',x===el);});}
     items.forEach(function(it){
@@ -883,7 +896,7 @@
       it.addEventListener('mouseenter',function(){set(it);});
       it.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();set(it);}});
     });
-  })();
+  });
 
   // interactive service chips
   [].forEach.call(document.querySelectorAll('.ftags'),function(tags){
@@ -900,20 +913,6 @@
     chips.forEach(function(c){
       c.addEventListener('click',function(){sel(c);});
       c.addEventListener('mouseenter',function(){sel(c);});
-    });
-  });
-
-  // interactive expertise cards (one active per practice group)
-  [].forEach.call(document.querySelectorAll('#page-expertise .pgrid'),function(grid){
-    var cards=[].slice.call(grid.querySelectorAll('.pc'));
-    function set(el){cards.forEach(function(x){x.classList.toggle('active',x===el);});}
-    cards.forEach(function(c){
-      c.setAttribute('tabindex','0');
-      c.setAttribute('role','button');
-      c.addEventListener('click',function(){set(c);});
-      c.addEventListener('mouseenter',function(){set(c);});
-      c.addEventListener('focus',function(){set(c);});
-      c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();set(c);}});
     });
   });
 </script>
