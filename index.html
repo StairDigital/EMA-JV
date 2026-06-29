@@ -135,8 +135,8 @@
   .phead p{color:rgba(244,241,234,.8);margin-top:1.4rem;max-width:56ch;font-size:1.1rem;}
 
   /* generic grids */
-  .gaps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink);}
-  .gap{padding:2.4rem 2rem 0 0;border-right:1px solid var(--line);}
+  .gaps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  .gap{padding:2.4rem 2rem 0 0;}
   .gap:last-child{border-right:0;padding-right:0;}
   .gap .gn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2.6rem,4.5vw,4rem);line-height:1;color:var(--gold);margin-bottom:1.1rem;letter-spacing:-.03em;}
   .gap .gl{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.7rem;}
@@ -175,8 +175,8 @@
   .pc p{font-size:.83rem;color:var(--ink-2);margin:0;}
 
   /* consultants */
-  .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink);}
-  .person{padding:2rem 1.5rem 0 0;border-right:1px solid var(--line);margin-bottom:2rem;}
+  .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+  .person{padding:2rem 1.5rem 0 0;margin-bottom:2rem;}
   .person:nth-child(4n){border-right:0;}
   .person .pphoto{position:relative;width:100%;aspect-ratio:1/1;min-height:170px;margin-bottom:1.1rem;overflow:hidden;display:flex;align-items:center;justify-content:center;}.person .pphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}.person .pphoto .ini{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2rem;color:#fff;letter-spacing:-.02em;text-shadow:0 1px 10px rgba(0,0,0,.28);}
   .person h3{font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.25rem;}
@@ -251,7 +251,7 @@
   @media(max-width:980px){
     .hero{grid-template-columns:1fr;}.hero-r{min-height:42vh;order:-1;}.hero-l{padding:2.6rem 1.3rem 3rem;}
     .pgrid{grid-template-columns:repeat(2,1fr);}
-    .cgrid{grid-template-columns:repeat(2,1fr);}.person:nth-child(4n){border-right:1px solid var(--line);}.person:nth-child(2n){border-right:0;}
+    .cgrid{grid-template-columns:repeat(2,1fr);}
     .ins-list{grid-template-columns:1fr;}
     .presence .wrap{grid-template-columns:repeat(2,1fr);}.stat:nth-child(2){border-right:0;}.stat{padding-bottom:1.8rem;padding-top:1.8rem;}
   }
@@ -259,7 +259,7 @@
     .gaps,.svc-grid,.uni-grid,.pp-grid,.feature,.duo,.contact-grid{grid-template-columns:1fr;}
     .feature.rev .fimg{order:0;}.feature .fimg{min-height:240px;}
     .duo .cell:first-child{border-right:0;border-bottom:2px solid var(--ink);}
-    .gap{border-right:0;border-bottom:1px solid var(--line);padding:2rem 0;}.gap:last-child{border-bottom:0;}
+    .gap{padding:2rem 0;}.gap:last-child{border-bottom:0;}
     .ap-row{grid-template-columns:1fr;gap:.8rem;}.ap-row:hover{padding-left:0;}
     .pp:first-child{border-right:0;border-bottom:2px solid var(--ink);}
     .lab{grid-template-columns:1fr;gap:.6rem;}
@@ -340,7 +340,7 @@
   <div class="presence">
     <div class="wrap" style="padding-top:clamp(2.6rem,5vh,3.6rem);padding-bottom:clamp(2.6rem,5vh,3.6rem)">
       <div class="stat"><div class="v">1988</div><div class="k">The global network's founding year</div></div>
-      <div class="stat"><div class="v">40+</div><div class="k">Offices across five continents</div></div>
+      <div class="stat"><div class="v">40+</div><div class="k">Offices across 5 continents</div></div>
       <div class="stat"><div class="v">200+</div><div class="k">Consultants worldwide</div></div>
       <div class="stat"><div class="v">India</div><div class="k">Owned, and board led</div></div>
     </div>
@@ -353,7 +353,7 @@
         <div class="num">Who we are</div>
         <div>
           <h2>An institution built for the board, and the board alone.</h2>
-          <p class="intro">EMAS Board Services pairs the reach of one of India's leading executive search firms with four decades of board experience, to make board composition a disciplined, independent exercise rather than a matter of habit. We find directors, evaluate boards and advise on governance, as one accountable partner.</p>
+          <p class="intro">EMAS Board Services pairs the reach of one of India's leading executive search firms with 40 years of board experience, to make board composition a disciplined, independent exercise rather than a matter of habit. We find directors, evaluate boards and advise on governance, as one accountable partner.</p>
         </div>
       </div>
     </div>
@@ -393,7 +393,7 @@
     <div class="wrap">
       <div class="pn">About</div>
       <h1>An institution built for the board.</h1>
-      <p>Board work is mandated for thousands of companies, yet it remains largely unserved by any dedicated, independent institution. EMAS exists to close three gaps that personal networks cannot.</p>
+      <p>Board work is mandated for thousands of companies, yet it remains largely unserved by any dedicated, independent institution. EMAS exists to close 3 gaps that personal networks cannot.</p>
     </div>
   </div>
 
@@ -414,7 +414,7 @@
       <div class="lab"><div class="num">How we work</div><div><h2>Method where the decision is still made by habit.</h2></div></div>
       <div class="ap">
         <div class="ap-row"><span class="ax">01</span><h3>Search led, not nomination led</h3><p>We advocate that board composition be a disciplined, independent search rather than a personal favour, while respecting the discretion the network has always provided.</p></div>
-        <div class="ap-row"><span class="ax">02</span><h3>A pipeline already held</h3><p>From a standing pool of several hundred sitting and aspiring directors, we can say within hours which two or three names fit a seat.</p></div>
+        <div class="ap-row"><span class="ax">02</span><h3>A pipeline already held</h3><p>From a standing pool of several hundred sitting and aspiring directors, we can say within hours which 2 or 3 names fit a seat.</p></div>
         <div class="ap-row"><span class="ax">03</span><h3>Evaluation that is acted upon</h3><p>Our framework is built to produce insight, not uniform scores. Value is created only when the committee chair acts on the findings.</p></div>
         <div class="ap-row"><span class="ax">04</span><h3>Board hiring is not CXO hiring</h3><p>The client meets only the candidate they are minded to appoint. We handle the search, and every ego, with care.</p></div>
       </div>
@@ -437,10 +437,10 @@
 
   <div class="pad">
     <div class="wrap">
-      <div class="lab"><div class="num">The partnership</div><div><h2>Two firms, one board focused institution.</h2></div></div>
+      <div class="lab"><div class="num">The partnership</div><div><h2>2 firms, one board focused institution.</h2></div></div>
       <div class="pp-grid">
-        <div class="pp"><div class="pn">EMA Partners</div><div class="pr">Executive search, India owned, global network</div><p>A leading India based executive search firm, part of a global partnership founded in 1988 with more than 40 offices and 200+ consultants across five continents, with deep CXO and board reach.</p></div>
-        <div class="pp"><div class="pn">STAIR Digital</div><div class="pr">Governance and AI transformation advisory</div><p>A governance and artificial intelligence advisory firm positioned where governance, AI and capital converge, carrying four decades of board experience through its chairman, Mr Shailesh Haribhakti.</p></div>
+        <div class="pp"><div class="pn">EMA Partners</div><div class="pr">Executive search, India owned, global network</div><p>A leading India based executive search firm, part of a global partnership founded in 1988 with more than 40 offices and 200+ consultants across 5 continents, with deep CXO and board reach.</p></div>
+        <div class="pp"><div class="pn">STAIR Digital</div><div class="pr">Governance and AI transformation advisory</div><p>A governance and artificial intelligence advisory firm positioned where governance, AI and capital converge, carrying 40 years of board experience through its chairman, Mr Shailesh Haribhakti.</p></div>
       </div>
     </div>
   </div>
@@ -461,7 +461,7 @@
     <div class="feature">
       <div class="fimg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=70')"></div>
       <div class="ftxt">
-        <div class="fk">Service one</div>
+        <div class="fk">Service 1</div>
         <h3>Board Search</h3>
         <p>Independent search for independent directors, committee chairs and the wider director universe, identified, referenced and assessed for fit with promoter, board and management. Search led, never a personal favour.</p>
         <ul><li>Independent directors</li><li>Committee chairs</li><li>Family and advisory boards</li><li>Emeritus and non executive seats</li></ul>
@@ -470,7 +470,7 @@
     <div class="feature rev">
       <div class="fimg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=70')"></div>
       <div class="ftxt">
-        <div class="fk">Service two</div>
+        <div class="fk">Service 2</div>
         <h3>Board Advisory and Evaluation</h3>
         <p>Composition strategy, annual board evaluation, strategic governance advisory and compensation advice, built to produce insight a board can act on rather than a filing it can store. Advice and execution, from one team.</p>
         <ul><li>Composition strategy</li><li>Board evaluation</li><li>Governance advisory</li><li>Compensation advisory</li></ul>
@@ -480,7 +480,7 @@
 
   <div class="pad scope on-dark" style="margin-top:clamp(3rem,6vh,4.5rem)">
     <div class="wrap">
-      <div class="lab"><div class="num">Full scope</div><div><h2>Six disciplines, one mandate.</h2></div></div>
+      <div class="lab"><div class="num">Full scope</div><div><h2>6 disciplines, one mandate.</h2></div></div>
       <div class="svc-grid">
         <div class="svc"><div class="sn">01</div><h4>Board Composition Strategy</h4><p>Skill matrix and gap analysis, board size and structure, diversity and tenure planning, committee architecture, alignment to strategy, ownership and regulation.</p></div>
         <div class="svc"><div class="sn">02</div><h4>Director Search and Hiring</h4><p>Directors and committee chairs identified, referenced and assessed for fit, across the full director universe.</p></div>
@@ -550,7 +550,7 @@
     <div class="wrap">
       <div class="pn">Consultants</div>
       <h1>The people behind the mandate.</h1>
-      <p>EMAS draws its leadership from two established firms, supported by a global partnership of more than 200 consultants across 40+ offices and five continents.</p>
+      <p>EMAS draws its leadership from 2 established firms, supported by a global partnership of more than 200 consultants across 40+ offices and 5 continents.</p>
     </div>
   </div>
 
@@ -558,22 +558,22 @@
     <div class="wrap">
       <p class="group-h">EMAS leadership</p>
       <div class="cgrid">
-        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#1F6F6B,#2E9E8F)"><span class="ini">KS</span></div><h3>K. Sudarshan</h3><div class="role">Managing Director, EMA Partners India</div><p>Leads the firm across India, Singapore and the UAE, and heads its Board and CEO practice, with over two decades in executive search.</p></div>
+        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#1F6F6B,#2E9E8F)"><span class="ini">KS</span></div><h3>K. Sudarshan</h3><div class="role">Managing Director, EMA Partners India</div><p>Leads the firm across India, Singapore and the UAE, and heads its Board and CEO practice, with over 20 years in executive search.</p></div>
         <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#3A3A7A,#6A57C2)"><span class="ini">RB</span></div><h3>Reet Bhambhani</h3><div class="role">Chief Operating Officer, EMA Partners India</div><p>Oversees operations and delivery, with a focus on financial services and digital leadership.</p></div>
-        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#8A6C39,#C9A86A)"><span class="ini">SH</span></div><h3>Shailesh Haribhakti</h3><div class="role">Chairman, STAIR Digital</div><p>A chartered accountant and serial board chair with four decades on the boards of leading listed companies in India.</p></div>
+        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#8A6C39,#C9A86A)"><span class="ini">SH</span></div><h3>Shailesh Haribhakti</h3><div class="role">Chairman, STAIR Digital</div><p>A chartered accountant and serial board chair with 40 years on the boards of leading listed companies in India.</p></div>
         <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#8E2D4A,#C24E6B)"><span class="ini">SS</span></div><h3>Shubham Saraff</h3><div class="role">Co Founder and Director, STAIR Digital</div><p>An Oxford MBA working at the intersection of governance, artificial intelligence and capital, leading the venture's build.</p></div>
       </div>
 
       <p class="group-h" style="margin-top:2.4rem">From the EMA Partners network</p>
       <div class="cgrid">
         <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#234E8C,#3E8FC0)"><span class="ini">SK</span></div><h3>S. Krishnaprakash</h3><div class="role">Managing Partner, EMA Partners India</div><p>Co founded EMA Partners India in 2003, with deep expertise across industrial, life sciences and healthcare leadership.</p></div>
-        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#6A2E6E,#A65394)"><span class="ini">AH</span></div><h3>Dr Archana Hingorani</h3><div class="role">Senior Advisor</div><p>Over three decades in financial services and private equity, and a serving independent director on listed boards.</p></div>
-        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#5C6B22,#8FA53F)"><span class="ini">AD</span></div><h3>Arun Dasmahapatra</h3><div class="role">Partner, Leadership Advisory</div><p>More than four decades across leadership advisory, executive search and general management, based in Bengaluru.</p></div>
+        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#6A2E6E,#A65394)"><span class="ini">AH</span></div><h3>Dr Archana Hingorani</h3><div class="role">Senior Advisor</div><p>Over 30 years in financial services and private equity, and a serving independent director on listed boards.</p></div>
+        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#5C6B22,#8FA53F)"><span class="ini">AD</span></div><h3>Arun Dasmahapatra</h3><div class="role">Partner, Leadership Advisory</div><p>More than 40 years across leadership advisory, executive search and general management, based in Bengaluru.</p></div>
         <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#9A2B36,#D2574F)"><span class="ini">BH</span></div><h3>Birger Husted</h3><div class="role">Managing Partner</div><p>A long standing partner of the global firm, advising on culture, diversity and cross border leadership.</p></div>
         <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#34506B,#5E8CB0)"><span class="ini">RQ</span></div><h3>Rui Guedes de Quinhones</h3><div class="role">Managing Partner</div><p>Advises clients on board structures and effective governance across European markets.</p></div>
         <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#1E5C3E,#3E9E6E)"><span class="ini">JI</span></div><h3>Juan Infante</h3><div class="role">Partner</div><p>Specialises in consumer and customer experience leadership across the firm's international practice.</p></div>
         <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#C77D2E,#E0A53F)"><span class="ini">MD</span></div><h3>Michelle DesChenes</h3><div class="role">Partner, Human Capital</div><p>Leads human capital and CHRO search within the firm's retained executive search practice.</p></div>
-        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#5A1A22,#8E2B34)"><span class="ini">SG</span></div><h3>Shekhar Ganapathy</h3><div class="role">Partner, Technology</div><p>Brings two decades in technology led services, strengthening the firm's research and search capability.</p></div>
+        <div class="person"><div class="pphoto" style="background:linear-gradient(135deg,#5A1A22,#8E2B34)"><span class="ini">SG</span></div><h3>Shekhar Ganapathy</h3><div class="role">Partner, Technology</div><p>Brings 20 years in technology led services, strengthening the firm's research and search capability.</p></div>
       </div>
     </div>
   </div>
@@ -586,7 +586,7 @@
     <div class="wrap">
       <div class="pn">Offices</div>
       <h1>Global reach, local board judgement.</h1>
-      <p>EMAS operates from Mumbai, drawing on the EMA Partners global network of more than 40 offices across five continents, and its national offices in India.</p>
+      <p>EMAS operates from Mumbai, drawing on the EMA Partners global network of more than 40 offices across 5 continents, and its national offices in India.</p>
     </div>
   </div>
 
