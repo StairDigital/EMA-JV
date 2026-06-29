@@ -382,124 +382,6 @@
   :focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
 
   /* ============================================================
-     ABOUT — three gaps, spotlight band  (.gapx)
-     ============================================================ */
-  .gapx-band{position:relative;background:#101219;color:var(--bone);overflow:hidden;isolation:isolate;}
-  .gapx-band::before{content:"";position:absolute;inset:0;z-index:0;
-    background-image:radial-gradient(rgba(201,168,106,.10) 1px,transparent 1.4px);
-    background-size:26px 26px;opacity:.5;-webkit-mask-image:radial-gradient(120% 120% at 50% 0%,#000 35%,transparent 78%);mask-image:radial-gradient(120% 120% at 50% 0%,#000 35%,transparent 78%);}
-  .gapx-glow{position:absolute;width:640px;height:640px;left:0;top:0;z-index:0;pointer-events:none;border-radius:50%;
-    background:radial-gradient(closest-side,rgba(201,168,106,.20),rgba(201,168,106,.06) 45%,transparent 70%);
-    transform:translate(-50%,-50%);transition:opacity .5s var(--ease);opacity:0;mix-blend-mode:screen;will-change:left,top;}
-  .gapx-band.lit .gapx-glow{opacity:1;}
-  .gapx-head{position:relative;z-index:2;margin-bottom:2.6rem;}
-  .gapx-head .eyebrow{color:var(--gold-lt);}
-  .gapx-head h2{font-size:clamp(1.7rem,3.6vw,2.7rem);font-weight:800;letter-spacing:-.03em;max-width:24ch;color:var(--bone);}
-  .gapx{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-d);}
-  .gapx-card{position:relative;padding:2.4rem 1.8rem 2.6rem;border-right:1px solid var(--line-d);transition:background .45s var(--ease);
-    opacity:1;}
-  .gapx-card:last-child{border-right:0;}
-  .gapx-card::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-lt));transition:width .55s var(--ease);}
-  .gapx-card .gx-n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2.6rem,4.6vw,4rem);line-height:1;letter-spacing:-.04em;
-    color:rgba(244,241,234,.16);transition:color .45s var(--ease),transform .45s var(--ease);margin-bottom:1.1rem;}
-  .gapx-card .gx-l{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-lt);font-weight:700;margin-bottom:.7rem;}
-  .gapx-card h3{font-size:1.45rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.7rem;color:var(--bone);}
-  .gapx-card p{color:rgba(244,241,234,.74);font-size:.98rem;margin:0;max-width:36ch;}
-  .gapx-card .gx-kick{display:flex;align-items:center;gap:.6rem;margin-top:1.3rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-lt);opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s;}
-  .gapx-card .gx-kick svg{width:18px;height:18px;}
-  .js .gapx-band:not(.in) .gapx-card{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(26px);}
-  .js .gapx-band.in .gapx-card{opacity:1;clip-path:inset(0 0 0 0);transform:none;
-    transition:opacity .7s var(--ease),clip-path .8s var(--ease),transform .7s var(--ease),background .45s var(--ease);}
-  .js .gapx-band.in .gapx-card:nth-child(2){transition-delay:.12s;}
-  .js .gapx-band.in .gapx-card:nth-child(3){transition-delay:.24s;}
-  .gapx.dim .gapx-card{opacity:.45;transition:opacity .4s var(--ease);}
-  .gapx.dim .gapx-card.hot{opacity:1;background:rgba(201,168,106,.06);}
-  .gapx.dim .gapx-card.hot::before{width:100%;}
-  .gapx.dim .gapx-card.hot .gx-n{color:var(--gold-lt);transform:translateY(-2px);}
-  .gapx.dim .gapx-card.hot .gx-kick{opacity:1;transform:none;}
-
-  /* ============================================================
-     ABOUT — How we work, method console  (.method)
-     ============================================================ */
-  .method{position:relative;background:#0E1017;color:var(--bone);overflow:hidden;isolation:isolate;}
-  .method::before,.method::after{content:"";position:absolute;border-radius:50%;z-index:0;pointer-events:none;filter:blur(40px);opacity:.5;transition:transform .6s var(--ease);}
-  .method::before{width:420px;height:420px;left:-80px;top:-120px;background:radial-gradient(closest-side,rgba(201,168,106,.20),transparent 70%);}
-  .method::after{width:520px;height:520px;right:-140px;bottom:-180px;background:radial-gradient(closest-side,rgba(138,108,57,.22),transparent 70%);}
-  .method .wrap{position:relative;z-index:2;}
-  .method .lab .num{color:var(--gold-lt);}
-  .method-grid{display:grid;grid-template-columns:.92fr 1.4fr;gap:clamp(1.6rem,4vw,3.4rem);margin-top:2.6rem;align-items:stretch;}
-  .m-steps{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line-d);}
-  .m-step{position:relative;display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:center;padding:1.25rem .4rem;border-bottom:1px solid var(--line-d);cursor:pointer;outline:none;transition:padding-left .35s var(--ease),background .35s var(--ease);}
-  .m-step:hover{padding-left:1rem;}
-  .m-step .ms-n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;color:rgba(244,241,234,.4);transition:color .35s;width:2.2rem;}
-  .m-step .ms-t{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;color:rgba(244,241,234,.74);transition:color .35s;line-height:1.2;}
-  .m-step.active .ms-n,.m-step:hover .ms-n{color:var(--gold-lt);}
-  .m-step.active .ms-t{color:var(--bone);}
-  .m-step.active{background:linear-gradient(90deg,rgba(201,168,106,.10),transparent 80%);}
-  .m-step:focus-visible{box-shadow:inset 0 0 0 2px var(--gold);}
-  .m-rail{height:3px;background:var(--line-d);margin-top:1.3rem;position:relative;overflow:hidden;}
-  .m-rail i{position:absolute;left:0;top:0;height:100%;width:25%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));transition:width .5s var(--ease),left .5s var(--ease);}
-  .m-stage{position:relative;border:1px solid var(--line-d);background:rgba(255,255,255,.018);padding:clamp(1.7rem,3vw,2.6rem);display:flex;flex-direction:column;min-height:340px;overflow:hidden;}
-  .m-stage .mst-ix{position:absolute;right:1.4rem;top:.6rem;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(4.5rem,11vw,8rem);line-height:1;color:rgba(201,168,106,.10);letter-spacing:-.05em;pointer-events:none;transition:opacity .4s;}
-  .m-stage .mst-svg{width:108px;height:72px;margin-bottom:1.4rem;color:var(--gold-lt);}
-  .m-stage .mst-svg svg{width:100%;height:100%;overflow:visible;}
-  .m-stage .mst-svg path,.m-stage .mst-svg line,.m-stage .mst-svg circle,.m-stage .mst-svg rect{stroke-dasharray:var(--len,260);stroke-dashoffset:var(--len,260);}
-  .m-stage.draw .mst-svg path,.m-stage.draw .mst-svg line,.m-stage.draw .mst-svg circle,.m-stage.draw .mst-svg rect{animation:mdraw 1.1s var(--ease) forwards;}
-  @keyframes mdraw{to{stroke-dashoffset:0;}}
-  .m-stage h3{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:800;letter-spacing:-.025em;margin-bottom:.9rem;color:var(--bone);max-width:20ch;}
-  .m-stage p{color:rgba(244,241,234,.78);font-size:1.04rem;margin:0;max-width:52ch;}
-  .m-stage .mst-inner{opacity:0;transform:translateY(10px);transition:opacity .45s var(--ease),transform .45s var(--ease);}
-  .m-stage .mst-inner.show{opacity:1;transform:none;}
-
-  /* ============================================================
-     ABOUT — The board universe, orbital constellation  (.universe)
-     ============================================================ */
-  .universe{position:relative;background:#0E1017;color:var(--bone);overflow:hidden;isolation:isolate;}
-  .universe .wrap{position:relative;z-index:2;}
-  .universe .lab .num{color:var(--gold-lt);}
-  .uv-stage{position:relative;width:100%;max-width:760px;margin:1.4rem auto 0;aspect-ratio:1/1;}
-  .uv-rot{position:absolute;inset:0;transform:translateZ(0);}
-  .js .uv-rot{animation:uvspin 64s linear infinite;}
-  .universe.paused .uv-rot{animation-play-state:paused;}
-  @keyframes uvspin{to{transform:rotate(360deg);}}
-  .uv-ring{position:absolute;border:1px solid rgba(201,168,106,.16);border-radius:50%;}
-  .uv-ring.r1{inset:13%;} .uv-ring.r2{inset:0;border-style:dashed;border-color:rgba(244,241,234,.08);}
-  .uv-core{position:absolute;left:50%;top:50%;width:40%;height:40%;transform:translate(-50%,-50%);border-radius:50%;z-index:5;
-    background:radial-gradient(closest-side,#1b1f2c,#10121a);border:1px solid rgba(201,168,106,.4);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem;
-    box-shadow:0 0 60px rgba(201,168,106,.14),inset 0 0 30px rgba(0,0,0,.5);}
-  .uv-core .uc-k{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);font-weight:700;margin-bottom:.4rem;}
-  .uv-core .uc-t{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.05rem,2.4vw,1.5rem);letter-spacing:-.02em;line-height:1.04;color:var(--bone);transition:opacity .3s;}
-  .uv-core .uc-d{font-size:.8rem;color:rgba(244,241,234,.7);margin-top:.55rem;line-height:1.35;max-width:22ch;min-height:2.4em;transition:opacity .3s;}
-  .uv-svg{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:visible;}
-  .uv-svg line{stroke:var(--gold-lt);stroke-width:1.2;stroke-dasharray:4 5;opacity:0;transition:opacity .4s;}
-  .uv-node{position:absolute;width:clamp(78px,16%,118px);height:clamp(78px,16%,118px);transform:translate(-50%,-50%);z-index:4;
-    border-radius:50%;border:1px solid rgba(244,241,234,.16);background:rgba(20,22,30,.82);backdrop-filter:blur(2px);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:.4rem;cursor:pointer;outline:none;
-    transition:border-color .35s,background .35s,box-shadow .35s,transform .35s var(--ease);}
-  .uv-node .un-x{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:.78rem;color:var(--gold-lt);}
-  .uv-node .un-l{font-size:.6rem;font-weight:700;letter-spacing:.02em;color:rgba(244,241,234,.8);line-height:1.08;margin-top:.18rem;}
-  .uv-node:hover,.uv-node.active{border-color:var(--gold);background:var(--gold);box-shadow:0 0 34px rgba(201,168,106,.5);transform:translate(-50%,-50%) scale(1.08);}
-  .uv-node:hover .un-x,.uv-node.active .un-x,.uv-node:hover .un-l,.uv-node.active .un-l{color:var(--ink);}
-  .uv-node:focus-visible{box-shadow:0 0 0 3px var(--gold);}
-  .uv-hint{text-align:center;margin-top:1.4rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,241,234,.45);font-weight:700;}
-  /* mobile fallback list */
-  .uv-list{display:none;}
-  .uv-stage{transition:transform .25s var(--ease);transform-style:preserve-3d;}
-  .uv-node{transition-property:opacity,transform,border-color,background,box-shadow;
-    transition-duration:.55s,.35s,.35s,.35s,.35s;transition-timing-function:var(--ease);transition-delay:0s,0s,0s,0s,0s;}
-  .js .universe:not(.seen) .uv-node{opacity:0;transform:translate(-50%,-50%) scale(.2);}
-  .js .universe:not(.seen) .uv-core{opacity:0;transform:translate(-50%,-50%) scale(.85);}
-  .uv-core{transition:opacity .6s var(--ease),transform .6s var(--ease);}
-  .js .universe .uv-node:nth-child(4){transition-delay:.05s,0s,0s,0s,0s;}
-  .js .universe .uv-node:nth-child(5){transition-delay:.12s,0s,0s,0s,0s;}
-  .js .universe .uv-node:nth-child(6){transition-delay:.19s,0s,0s,0s,0s;}
-  .js .universe .uv-node:nth-child(7){transition-delay:.26s,0s,0s,0s,0s;}
-  .js .universe .uv-node:nth-child(8){transition-delay:.33s,0s,0s,0s,0s;}
-  .js .universe .uv-node:nth-child(9){transition-delay:.40s,0s,0s,0s,0s;}
-  .universe.seen .uv-line-on line{opacity:.7;}
-
-  /* ============================================================
      OFFICES — global atlas  (.atlas)
      ============================================================ */
   .atlas-band{background:#0C0E15;color:var(--bone);position:relative;overflow:hidden;}
@@ -670,110 +552,44 @@
     </div>
   </div>
 
-  <div class="gapx-band pad" id="gapxBand">
-    <div class="gapx-glow" id="gapxGlow"></div>
+  <!-- three gaps: expanding panels (Services-style) -->
+  <div class="pad">
     <div class="wrap">
-      <div class="gapx-head">
-        <p class="eyebrow">Why EMAS exists</p>
-        <h2>Three gaps that personal networks cannot close.</h2>
-      </div>
-      <div class="gapx" id="gapx">
-        <div class="gapx-card">
-          <div class="gx-n">01</div>
-          <div class="gx-l">The composition gap</div>
-          <h3>Search, not courtesy</h3>
-          <p>Seats are filled through personal address books rather than structured, independent search, and the annual evaluation every listed company must run is too often a compliance file, not a source of insight.</p>
-          <div class="gx-kick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>Independent search</div>
-        </div>
-        <div class="gapx-card">
-          <div class="gx-n">02</div>
-          <div class="gx-l">The capability gap</div>
-          <h3>Both halves, in one place</h3>
-          <p>Search firms treat board seats as an extension of CXO hiring. Governance consultants advise on process but hold no director talent. Neither party holds both the discipline and the network.</p>
-          <div class="gx-kick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 4 12l4 6M16 6l4 6-4 6"/></svg>Talent and method</div>
-        </div>
-        <div class="gapx-card">
-          <div class="gx-n">03</div>
-          <div class="gx-l">The ownership gap</div>
-          <h3>India owned, board led</h3>
-          <p>Global brands carry parent reporting lines and sanction sensitivity that governance sensitive boards find uncomfortable. An India owned platform turns that discomfort into a durable advantage.</p>
-          <div class="gx-kick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 4.4 3.4 7.7 8 9 4.6-1.3 8-4.6 8-9V7Z"/></svg>Owned in India</div>
-        </div>
+      <div class="lab"><div class="num">Why EMAS exists</div><div><h2>Three gaps that personal networks cannot close.</h2></div></div>
+      <div class="disc">
+        <div class="disc-item active" role="button" tabindex="0" aria-label="The composition gap"><span class="dn">01</span><span class="dt">The composition gap</span><span class="dd">Search, not courtesy. Seats are filled through personal address books rather than structured, independent search, and the annual evaluation every listed company must run is too often a compliance file, not a source of insight.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="The capability gap"><span class="dn">02</span><span class="dt">The capability gap</span><span class="dd">Both halves, in one place. Search firms treat board seats as an extension of CXO hiring. Governance consultants advise on process but hold no director talent. Neither party holds both the discipline and the network.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="The ownership gap"><span class="dn">03</span><span class="dt">The ownership gap</span><span class="dd">India owned, board led. Global brands carry parent reporting lines and sanction sensitivity that governance sensitive boards find uncomfortable. An India owned platform turns that discomfort into a durable advantage.</span></div>
       </div>
     </div>
   </div>
 
   <div class="statement"><div class="wrap"><p>Led by people who have sat on boards, <em>not merely filled them.</em></p></div></div>
 
-  <div class="method pad">
+  <!-- how we work: expanding panels (Services-style) -->
+  <div class="pad">
     <div class="wrap">
       <div class="lab"><div class="num">How we work</div><div><h2>Method where the decision is still made by habit.</h2></div></div>
-      <div class="method-grid">
-        <div>
-          <div class="m-steps" id="mSteps">
-            <div class="m-step active" role="button" tabindex="0" data-i="0"
-                 data-title="Search led, not nomination led"
-                 data-body="We advocate that board composition be a disciplined, independent search rather than a personal favour, while respecting the discretion the network has always provided.">
-              <span class="ms-n">01</span><span class="ms-t">Search led, not nomination led</span>
-            </div>
-            <div class="m-step" role="button" tabindex="0" data-i="1"
-                 data-title="A pipeline already held"
-                 data-body="From a standing pool of several hundred sitting and aspiring directors, we can say within hours which two or three names fit a seat.">
-              <span class="ms-n">02</span><span class="ms-t">A pipeline already held</span>
-            </div>
-            <div class="m-step" role="button" tabindex="0" data-i="2"
-                 data-title="Evaluation that is acted upon"
-                 data-body="Our framework is built to produce insight, not uniform scores. Value is created only when the committee chair acts on the findings.">
-              <span class="ms-n">03</span><span class="ms-t">Evaluation that is acted upon</span>
-            </div>
-            <div class="m-step" role="button" tabindex="0" data-i="3"
-                 data-title="Board hiring is not CXO hiring"
-                 data-body="The client meets only the candidate they are minded to appoint. We handle the search, and every ego, with care.">
-              <span class="ms-n">04</span><span class="ms-t">Board hiring is not CXO hiring</span>
-            </div>
-          </div>
-          <div class="m-rail"><i id="mRail"></i></div>
-        </div>
-        <div class="m-stage" id="mStage">
-          <div class="mst-ix" id="mIx">01</div>
-          <div class="mst-svg" id="mSvg"></div>
-          <div class="mst-inner show" id="mInner">
-            <h3 id="mTitle">Search led, not nomination led</h3>
-            <p id="mBody">We advocate that board composition be a disciplined, independent search rather than a personal favour, while respecting the discretion the network has always provided.</p>
-          </div>
-        </div>
+      <div class="disc">
+        <div class="disc-item active" role="button" tabindex="0" aria-label="Search led, not nomination led"><span class="dn">01</span><span class="dt">Search led, not nomination led</span><span class="dd">We advocate that board composition be a disciplined, independent search rather than a personal favour, while respecting the discretion the network has always provided.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="A pipeline already held"><span class="dn">02</span><span class="dt">A pipeline already held</span><span class="dd">From a standing pool of several hundred sitting and aspiring directors, we can say within hours which two or three names fit a seat.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Evaluation that is acted upon"><span class="dn">03</span><span class="dt">Evaluation that is acted upon</span><span class="dd">Our framework is built to produce insight, not uniform scores. Value is created only when the committee chair acts on the findings.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Board hiring is not CXO hiring"><span class="dn">04</span><span class="dt">Board hiring is not CXO hiring</span><span class="dd">The client meets only the candidate they are minded to appoint. We handle the search, and every ego, with care.</span></div>
       </div>
     </div>
   </div>
 
-  <div class="universe pad" id="universe" style="padding-top:clamp(3.5rem,7vh,5.5rem)">
+  <!-- the board universe: expanding panels (Services-style) -->
+  <div class="pad" style="background:var(--paper-2);padding-top:clamp(3.5rem,7vh,5.5rem)">
     <div class="wrap">
       <div class="lab"><div class="num">The board universe</div><div><h2>The full board universe, not the independent seat alone.</h2></div></div>
-
-      <div class="uv-stage" id="uvStage">
-        <div class="uv-rot"><div class="uv-ring r2"></div><div class="uv-ring r1"></div></div>
-        <svg class="uv-svg" id="uvSvg" viewBox="0 0 100 100" preserveAspectRatio="none"><line id="uvLine" x1="50" y1="50" x2="50" y2="50"/></svg>
-        <div class="uv-core" id="uvCore">
-          <div class="uc-k">The board</div>
-          <div class="uc-t" id="uvCoreT">Six board constructs</div>
-          <div class="uc-d" id="uvCoreD">Hover a node to see the construct we search, structure and advise on.</div>
-        </div>
-        <div class="uv-node" role="button" tabindex="0" data-title="Governance boards" data-desc="Group level structures spanning multiple legal entities under one family, sometimes constituted overseas."><span class="un-x">01</span><span class="un-l">Governance boards</span></div>
-        <div class="uv-node" role="button" tabindex="0" data-title="Advisory councils" data-desc="Non statutory boards built for specific purposes, such as succession or a strategic question."><span class="un-x">02</span><span class="un-l">Advisory councils</span></div>
-        <div class="uv-node" role="button" tabindex="0" data-title="Family boards and councils" data-desc="Including the appointment of independent external members to the family council."><span class="un-x">03</span><span class="un-l">Family councils</span></div>
-        <div class="uv-node" role="button" tabindex="0" data-title="Non executive directors" data-desc="The non executive, non independent seat, used where a candidate is conflicted or has exhausted tenure."><span class="un-x">04</span><span class="un-l">Non exec directors</span></div>
-        <div class="uv-node" role="button" tabindex="0" data-title="Emeritus chairpersons" data-desc="An under exploited construct that has to be structured properly, with rights and remuneration defined."><span class="un-x">05</span><span class="un-l">Emeritus chairs</span></div>
-        <div class="uv-node" role="button" tabindex="0" data-title="Those Charged With Governance" data-desc="An evolving construct expected to have wide ranging impact, including pre audit engagement."><span class="un-x">06</span><span class="un-l">TCWG</span></div>
-      </div>
-      <div class="uv-hint">Hover or tap a node to explore</div>
-
-      <div class="uv-list">
-        <div class="uv-li"><span class="x">01</span><div><h3>Governance boards</h3><p>Group level structures spanning multiple legal entities under one family, sometimes constituted overseas.</p></div></div>
-        <div class="uv-li"><span class="x">02</span><div><h3>Advisory councils</h3><p>Non statutory boards built for specific purposes, such as succession or a strategic question.</p></div></div>
-        <div class="uv-li"><span class="x">03</span><div><h3>Family boards and councils</h3><p>Including the appointment of independent external members to the family council.</p></div></div>
-        <div class="uv-li"><span class="x">04</span><div><h3>Non executive directors</h3><p>The non executive, non independent seat, used where a candidate is conflicted or has exhausted tenure.</p></div></div>
-        <div class="uv-li"><span class="x">05</span><div><h3>Emeritus chairpersons</h3><p>An under exploited construct that has to be structured properly, with rights and remuneration defined.</p></div></div>
-        <div class="uv-li"><span class="x">06</span><div><h3>Those Charged With Governance</h3><p>An evolving construct expected to have wide ranging impact, including pre audit engagement.</p></div></div>
+      <div class="disc disc-exp">
+        <div class="disc-item active" role="button" tabindex="0" aria-label="Governance boards"><span class="dn">01</span><span class="dt">Governance boards</span><span class="dd">Group level structures spanning multiple legal entities under one family, sometimes constituted overseas.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Advisory councils"><span class="dn">02</span><span class="dt">Advisory councils</span><span class="dd">Non statutory boards built for specific purposes, such as succession or a strategic question.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Family boards and councils"><span class="dn">03</span><span class="dt">Family boards and councils</span><span class="dd">Including the appointment of independent external members to the family council.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Non executive directors"><span class="dn">04</span><span class="dt">Non executive directors</span><span class="dd">The non executive, non independent seat, used where a candidate is conflicted or has exhausted tenure.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Emeritus chairpersons"><span class="dn">05</span><span class="dt">Emeritus chairpersons</span><span class="dd">An under exploited construct that has to be structured properly, with rights and remuneration defined.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Those Charged With Governance"><span class="dn">06</span><span class="dt">Those Charged With Governance</span><span class="dd">An evolving construct expected to have wide ranging impact, including pre audit engagement.</span></div>
       </div>
     </div>
   </div>
@@ -1150,117 +966,6 @@
   });
 
   var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---------- ABOUT: three gaps spotlight ---------- */
-  (function(){
-    var band=document.getElementById('gapxBand'),glow=document.getElementById('gapxGlow'),grid=document.getElementById('gapx');
-    if(!band) return;
-    var cards=[].slice.call(grid.querySelectorAll('.gapx-card'));
-    band.addEventListener('pointermove',function(e){
-      var r=band.getBoundingClientRect();
-      glow.style.left=(e.clientX-r.left)+'px';glow.style.top=(e.clientY-r.top)+'px';
-      band.classList.add('lit');
-    });
-    band.addEventListener('pointerleave',function(){band.classList.remove('lit');});
-    cards.forEach(function(c){
-      c.addEventListener('pointerenter',function(){grid.classList.add('dim');cards.forEach(function(x){x.classList.toggle('hot',x===c);});});
-    });
-    grid.addEventListener('pointerleave',function(){grid.classList.remove('dim');cards.forEach(function(x){x.classList.remove('hot');});});
-    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){band.classList.add('in');io.disconnect();}});},{threshold:.25});
-    io.observe(band);
-  })();
-
-  /* ---------- ABOUT: method console ---------- */
-  (function(){
-    var steps=document.getElementById('mSteps');if(!steps) return;
-    var items=[].slice.call(steps.querySelectorAll('.m-step'));
-    var rail=document.getElementById('mRail'),stage=document.getElementById('mStage'),inner=document.getElementById('mInner');
-    var elT=document.getElementById('mTitle'),elB=document.getElementById('mBody'),elIx=document.getElementById('mIx'),elSvg=document.getElementById('mSvg');
-    var svgs=[
-      '<svg viewBox="0 0 120 80"><circle cx="48" cy="34" r="18"/><path d="M61 47 78 64"/><circle cx="30" cy="14" r="2.4"/><circle cx="86" cy="20" r="2.4"/><circle cx="98" cy="46" r="2.4"/><circle cx="20" cy="58" r="2.4"/><circle cx="74" cy="10" r="2.4"/></svg>',
-      '<svg viewBox="0 0 120 80"><path d="M22 14h76L70 44v22l-20 8V44z"/><circle cx="34" cy="8" r="2.2"/><circle cx="50" cy="8" r="2.2"/><circle cx="66" cy="8" r="2.2"/><circle cx="82" cy="8" r="2.2"/><circle cx="60" cy="70" r="3"/></svg>',
-      '<svg viewBox="0 0 120 80"><rect x="14" y="12" width="52" height="56" rx="3"/><path d="M24 28h22M24 40h30M24 52h18"/><path d="M70 40h26"/><path d="M88 32l10 8-10 8"/><path d="M104 26l6 14-6 14"/></svg>',
-      '<svg viewBox="0 0 120 80"><path d="M16 12v56M104 12v56"/><circle cx="16" cy="30" r="3"/><circle cx="16" cy="50" r="3"/><circle cx="104" cy="30" r="3"/><circle cx="104" cy="50" r="3"/><path d="M22 40h30M68 40h30"/><circle cx="60" cy="40" r="9"/></svg>'
-    ];
-    var current=-1,timer=null;
-    function drawSvg(){
-      stage.classList.remove('draw');void stage.offsetWidth;
-      [].forEach.call(elSvg.querySelectorAll('path,line,circle,rect'),function(p){
-        try{var L=p.getTotalLength();p.style.setProperty('--len',Math.ceil(L)+1);}catch(e){p.style.setProperty('--len',300);}
-      });
-      stage.classList.add('draw');
-    }
-    function activate(i,viaUser){
-      if(i===current) return;current=i;var it=items[i];
-      items.forEach(function(x){x.classList.toggle('active',x===it);});
-      rail.style.left=(i*25)+'%';
-      inner.classList.remove('show');
-      setTimeout(function(){
-        elT.textContent=it.getAttribute('data-title');
-        elB.textContent=it.getAttribute('data-body');
-        elIx.textContent='0'+(i+1);
-        elSvg.innerHTML=svgs[i];
-        inner.classList.add('show');
-        if(!RM) drawSvg();
-      },180);
-      if(viaUser) restart();
-    }
-    function next(){activate((current+1)%items.length,false);}
-    function restart(){if(timer)clearInterval(timer);if(!RM)timer=setInterval(next,5200);}
-    items.forEach(function(it,i){
-      it.addEventListener('click',function(){activate(i,true);});
-      it.addEventListener('mouseenter',function(){activate(i,true);});
-      it.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(i,true);}
-        if(e.key==='ArrowDown'){e.preventDefault();items[(i+1)%items.length].focus();activate((i+1)%items.length,true);}
-        if(e.key==='ArrowUp'){e.preventDefault();var p=(i-1+items.length)%items.length;items[p].focus();activate(p,true);}});
-    });
-    steps.addEventListener('mouseleave',restart);
-    activate(0,false);
-    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){if(!RM)drawSvg();restart();}else{if(timer)clearInterval(timer);}});},{threshold:.3});
-    io.observe(stage);
-  })();
-
-  /* ---------- ABOUT: board universe orbit ---------- */
-  (function(){
-    var uni=document.getElementById('universe');if(!uni) return;
-    var stage=document.getElementById('uvStage'),svg=document.getElementById('uvSvg'),line=document.getElementById('uvLine');
-    var coreT=document.getElementById('uvCoreT'),coreD=document.getElementById('uvCoreD');
-    var nodes=[].slice.call(stage.querySelectorAll('.uv-node'));
-    var R=40,cx=50,cy=50;
-    nodes.forEach(function(n,i){
-      var ang=(-90+i*60)*Math.PI/180;
-      var x=cx+R*Math.cos(ang),y=cy+R*Math.sin(ang);
-      n.style.left=x+'%';n.style.top=y+'%';n.dataset.x=x;n.dataset.y=y;
-    });
-    var defT='Six board constructs',defD='Hover a node to see the construct we search, structure and advise on.';
-    function setLine(n){line.setAttribute('x2',n.dataset.x);line.setAttribute('y2',n.dataset.y);svg.classList.add('uv-line-on');uni.classList.add('paused');}
-    function clearLine(){svg.classList.remove('uv-line-on');uni.classList.remove('paused');}
-    function pick(n){
-      nodes.forEach(function(x){x.classList.toggle('active',x===n);});
-      coreT.style.opacity='0';coreD.style.opacity='0';
-      setTimeout(function(){coreT.textContent=n.getAttribute('data-title');coreD.textContent=n.getAttribute('data-desc');coreT.style.opacity='1';coreD.style.opacity='1';},150);
-      setLine(n);
-    }
-    function reset(){nodes.forEach(function(x){x.classList.remove('active');});coreT.style.opacity='0';coreD.style.opacity='0';
-      setTimeout(function(){coreT.textContent=defT;coreD.textContent=defD;coreT.style.opacity='1';coreD.style.opacity='1';},150);clearLine();}
-    nodes.forEach(function(n){
-      n.addEventListener('pointerenter',function(){pick(n);});
-      n.addEventListener('focus',function(){pick(n);});
-      n.addEventListener('click',function(){pick(n);});
-      n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(n);}});
-    });
-    stage.addEventListener('pointerleave',reset);
-    if(!RM){
-      stage.addEventListener('pointermove',function(e){
-        var r=stage.getBoundingClientRect();
-        var dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;
-        stage.style.transform='perspective(900px) rotateY('+(dx*7)+'deg) rotateX('+(-dy*7)+'deg)';
-      });
-      stage.addEventListener('pointerleave',function(){stage.style.transform='';});
-    }
-    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){uni.classList.add('seen');io.disconnect();}});},{threshold:.2});
-    io.observe(uni);
-  })();
 
   /* ---------- OFFICES: global atlas ---------- */
   (function(){
