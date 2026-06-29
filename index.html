@@ -5,7 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EMAS Board Services, India owned board search, evaluation and governance</title>
 <meta name="description" content="EMAS Board Services is an India owned board search, evaluation and governance partner, a joint venture between EMA Partners and STAIR Digital, backed by a global network of 200+ consultants across 40+ offices." />
-<script>document.documentElement.className += ' js';</script>
+<script>document.documentElement.className += ' js';
+  // interactive disciplines
+  (function(){
+    var d=document.getElementById('disc'); if(!d) return;
+    var items=[].slice.call(d.querySelectorAll('.disc-item'));
+    function set(el){items.forEach(function(x){x.classList.toggle('active',x===el);});}
+    items.forEach(function(it){
+      it.addEventListener('click',function(){set(it);});
+      it.addEventListener('mouseenter',function(){set(it);});
+      it.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();set(it);}});
+    });
+  })();
+
+  // interactive service chips
+  [].forEach.call(document.querySelectorAll('.ftags'),function(tags){
+    var note=document.getElementById(tags.getAttribute('data-target'));
+    var chips=[].slice.call(tags.querySelectorAll('.chip'));
+    function sel(c){chips.forEach(function(x){x.classList.toggle('active',x===c);});if(note)note.textContent=c.getAttribute('data-note');}
+    chips.forEach(function(c){
+      c.addEventListener('click',function(){sel(c);});
+      c.addEventListener('mouseenter',function(){sel(c);});
+    });
+  });
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -281,12 +304,53 @@
   .pf-bio p:last-child{margin:0;}
   @media(max-width:760px){.profile{grid-template-columns:1fr;}.pf-photo{max-width:360px;}}
 
+
+  /* interactive disciplines */
+  .disc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);}
+  .disc-item{background:var(--ink);padding:2.1rem 1.7rem 2.2rem;display:flex;flex-direction:column;}
+  .disc-item .dn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.3rem;color:var(--gold-lt);margin-bottom:1rem;}
+  .disc-item .dt{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.3rem;color:var(--bone);letter-spacing:-.02em;line-height:1.08;margin-bottom:.7rem;}
+  .disc-item .dd{color:rgba(244,241,234,.72);font-size:.92rem;}
+  .js .disc{display:flex;gap:2px;min-height:460px;}
+  .js .disc-item{flex:1 1 0;min-width:0;overflow:hidden;position:relative;cursor:pointer;outline:none;padding:2.1rem 1.5rem;transition:flex-grow .55s var(--ease),background .4s var(--ease);}
+  .js .disc-item .dn{margin-bottom:0;transition:color .4s;}
+  .js .disc-item .dt{margin:auto 0 0;writing-mode:vertical-rl;white-space:nowrap;font-size:1.35rem;line-height:1;transition:font-size .4s,color .4s;}
+  .js .disc-item .dd{opacity:0;max-width:36ch;margin-top:1.1rem;transition:opacity .35s;pointer-events:none;display:none;}
+  .js .disc-item:not(.active):hover{background:var(--ink-2);}
+  .js .disc-item:focus-visible{box-shadow:inset 0 0 0 2px var(--gold);}
+  .js .disc-item.active{flex:5 1 0;background:var(--gold);}
+  .js .disc-item.active .dn{color:var(--ink);}
+  .js .disc-item.active .dt{writing-mode:horizontal-tb;margin:1rem 0 0;font-size:1.95rem;color:var(--ink);white-space:normal;letter-spacing:-.03em;}
+  .js .disc-item.active .dd{opacity:1;display:block;color:rgba(23,24,27,.82);pointer-events:auto;}
+
+
+  /* service feature: lead line + interactive chips */
+  .feature .ftxt{justify-content:flex-start;padding-top:clamp(2.4rem,4vw,3.6rem);}
+  .flead{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:1rem;}
+  .ftags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.6rem 0 0;}
+  .chip{font-family:inherit;font-size:.78rem;font-weight:600;border:1px solid var(--line);padding:.45rem .85rem;color:var(--ink-2);background:none;cursor:default;transition:background .25s,color .25s,border-color .25s;}
+  .js .chip{cursor:pointer;}
+  .js .chip.active{background:var(--ink);color:var(--bone);border-color:var(--ink);}
+  .js .chip:not(.active):hover{border-color:var(--ink);color:var(--ink);}
+  .fnote{margin-top:1.1rem!important;color:var(--ink-2);font-size:.96rem;line-height:1.5;border-left:2px solid var(--gold);padding-left:.95rem;min-height:3em;}
+  .flink{display:inline-block;margin-top:1.5rem;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);cursor:pointer;}
+  .flink:hover{color:var(--ink);}
+
   @media(max-width:980px){
     .hero{grid-template-columns:1fr;}.hero-r{min-height:42vh;order:-1;}.hero-l{padding:2.6rem 1.3rem 3rem;}
     .pgrid{grid-template-columns:repeat(2,1fr);}
     .cgrid{grid-template-columns:repeat(3,1fr);}
     .ins-list{grid-template-columns:1fr;}
     .presence .wrap{grid-template-columns:repeat(2,1fr);}.stat:nth-child(2){border-right:0;}.stat{padding-bottom:1.8rem;padding-top:1.8rem;}
+  }
+  @media(max-width:860px){
+    .disc{grid-template-columns:1fr;}
+    .js .disc{flex-direction:column;min-height:0;}
+    .js .disc-item{flex:none;padding:1.6rem;}
+    .js .disc-item .dt{writing-mode:horizontal-tb;margin:.55rem 0 0;white-space:normal;font-size:1.4rem;}
+    .js .disc-item.active{flex:none;}
+    .js .disc-item.active .dt{font-size:1.5rem;}
+    .js .disc-item.active .dd{font-size:.95rem;}
   }
   @media(max-width:860px){
     .gaps,.svc-grid,.uni-grid,.pp-grid,.feature,.duo,.contact-grid{grid-template-columns:1fr;}
@@ -494,19 +558,23 @@
     <div class="feature">
       <div class="fimg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=70')"></div>
       <div class="ftxt">
-        <div class="fk">Service 1</div>
+        <span class="flead">Director and board search</span>
         <h3>Board Search</h3>
         <p>Independent search for independent directors, committee chairs and the wider director universe, identified, referenced and assessed for fit with promoter, board and management. Search led, never a personal favour.</p>
-        <ul><li>Independent directors</li><li>Committee chairs</li><li>Family and advisory boards</li><li>Emeritus and non executive seats</li></ul>
+        <div class="ftags" data-target="fnote1"><button class="chip active" data-note="Genuinely independent non executive directors, sourced and referenced for fit with promoter, board and management.">Independent directors</button><button class="chip" data-note="Audit, nomination, remuneration and risk committee chairs with the standing the role demands.">Committee chairs</button><button class="chip" data-note="Structure and talent for family councils and advisory boards that sit alongside the main board.">Family and advisory boards</button><button class="chip" data-note="Senior figures for emeritus, mentor and non executive seats that add ballast to a board.">Emeritus and non executive seats</button></div>
+        <p class="fnote" id="fnote1">Genuinely independent non executive directors, sourced and referenced for fit with promoter, board and management.</p>
+        <a class="flink" data-page="page-contact" href="#page-contact">Request an introduction &rarr;</a>
       </div>
     </div>
     <div class="feature rev">
       <div class="fimg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=70')"></div>
       <div class="ftxt">
-        <div class="fk">Service 2</div>
+        <span class="flead">Evaluation and governance advisory</span>
         <h3>Board Advisory and Evaluation</h3>
         <p>Composition strategy, annual board evaluation, strategic governance advisory and compensation advice, built to produce insight a board can act on rather than a filing it can store. Advice and execution, from one team.</p>
-        <ul><li>Composition strategy</li><li>Board evaluation</li><li>Governance advisory</li><li>Compensation advisory</li></ul>
+        <div class="ftags" data-target="fnote2"><button class="chip active" data-note="Skill matrix, gap analysis and a board structure mapped to strategy, ownership and regulation.">Composition strategy</button><button class="chip" data-note="Annual evaluation that produces insight a board can act on, not a filing it stores.">Board evaluation</button><button class="chip" data-note="IPO and capital readiness, promoter alignment and governance for AI led transformation.">Governance advisory</button><button class="chip" data-note="Benchmarked director pay, committee differentials and defensible board charters.">Compensation advisory</button></div>
+        <p class="fnote" id="fnote2">Skill matrix, gap analysis and a board structure mapped to strategy, ownership and regulation.</p>
+        <a class="flink" data-page="page-contact" href="#page-contact">Request an introduction &rarr;</a>
       </div>
     </div>
   </div>
@@ -514,13 +582,13 @@
   <div class="pad scope on-dark" style="margin-top:clamp(3rem,6vh,4.5rem)">
     <div class="wrap">
       <div class="lab"><div class="num">Full scope</div><div><h2>6 disciplines, one mandate.</h2></div></div>
-      <div class="svc-grid">
-        <div class="svc"><div class="sn">01</div><h4>Board Composition Strategy</h4><p>Skill matrix and gap analysis, board size and structure, diversity and tenure planning, committee architecture, alignment to strategy, ownership and regulation.</p></div>
-        <div class="svc"><div class="sn">02</div><h4>Director Search and Hiring</h4><p>Directors and committee chairs identified, referenced and assessed for fit, across the full director universe.</p></div>
-        <div class="svc"><div class="sn">03</div><h4>Board Evaluation and Effectiveness</h4><p>Annual evaluation that produces insight a board can act on, with action planning that lifts how the board functions.</p></div>
-        <div class="svc"><div class="sn">04</div><h4>Renewal and Succession</h4><p>Board refresh, succession for board and committee leadership, and a long term director pipeline.</p></div>
-        <div class="svc"><div class="sn">05</div><h4>Strategic Governance Advisory</h4><p>IPO and institutional capital readiness, promoter alignment, governance for AI led transformation, and risk oversight.</p></div>
-        <div class="svc"><div class="sn">06</div><h4>Compensation and Policy Advisory</h4><p>Benchmarked director compensation, differentiated committee pay, board charters and defensible frameworks.</p></div>
+      <div class="disc" id="disc">
+        <div class="disc-item active" role="button" tabindex="0" aria-label="Board Composition Strategy"><span class="dn">01</span><span class="dt">Board Composition Strategy</span><span class="dd">Skill matrix and gap analysis, board size and structure, diversity and tenure planning, committee architecture, and alignment to strategy, ownership and regulation.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Director Search and Hiring"><span class="dn">02</span><span class="dt">Director Search and Hiring</span><span class="dd">Directors and committee chairs identified, referenced and assessed for fit with promoter, board and management, across the full director universe.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Board Evaluation and Effectiveness"><span class="dn">03</span><span class="dt">Board Evaluation and Effectiveness</span><span class="dd">Annual evaluation that produces insight a board can act on, with committee, chair and decision quality assessment, and action planning that lifts how the board functions.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Renewal and Succession"><span class="dn">04</span><span class="dt">Renewal and Succession</span><span class="dd">Board refresh, succession for board and committee leadership, and a long term director pipeline maintained against future capability needs.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Strategic Governance Advisory"><span class="dn">05</span><span class="dt">Strategic Governance Advisory</span><span class="dd">Board readiness for IPOs and institutional capital, promoter alignment, governance for AI led transformation, and risk oversight architecture.</span></div>
+        <div class="disc-item" role="button" tabindex="0" aria-label="Compensation and Policy Advisory"><span class="dn">06</span><span class="dt">Compensation and Policy Advisory</span><span class="dd">Director compensation benchmarked against a chosen peer set, differentiated committee pay, board charters and defensible governance frameworks.</span></div>
       </div>
     </div>
   </div>
