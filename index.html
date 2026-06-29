@@ -3,613 +3,752 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EMAS Board Services — The right board, independently found and honestly assessed</title>
-<meta name="description" content="EMAS Board Services is an India owned board search, evaluation and governance partner for India's listed and ambitious private companies. A joint venture between EMA Partners and STAIR Digital." />
+<title>EMAS Board Services — India owned board search, evaluation and governance</title>
+<meta name="description" content="EMAS Board Services is an India owned board search, evaluation and governance partner, a joint venture between EMA Partners and STAIR Digital, backed by a global network of 200+ consultants across 40+ offices." />
+<script>document.documentElement.className += ' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#14223C;
-    --navy-deep:#0E1828;
-    --slate:#5A6B82;
-    --champagne:#C9A86A;
-    --champagne-soft:#B79456;
-    --ivory:#F6F3EC;
-    --ivory-warm:#EFEADF;
-    --ink:#15171B;
-    --ink-soft:#3A3F47;
-    --line-dark:rgba(201,168,106,.28);
-    --line-light:rgba(20,34,60,.14);
-    --pad:clamp(1.4rem,5vw,7rem);
+    --ink:#17181B; --ink-2:#3C3E42; --paper:#F4F1EA; --paper-2:#EBE7DC; --muted:#8C887B;
+    --bone:#F4F1EA; --gold:#B08D4F; --gold-lt:#C9A86A; --gold-deep:#8A6C39;
+    --line:rgba(23,24,27,.15); --line-d:rgba(244,241,234,.18);
+    --pad:clamp(1.3rem,5vw,7rem); --ease:cubic-bezier(.16,.84,.34,1); --maxw:1280px;
   }
-
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--ivory);
-    color:var(--ink);
-    font-family:"Spectral",Georgia,serif;
-    font-weight:400;
-    font-size:clamp(1rem,.55vw + .9rem,1.12rem);
-    line-height:1.62;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;margin:0;color:var(--navy);line-height:1.08;}
-  p{margin:0 0 1.1em;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:400;font-size:clamp(1rem,.4vw + .94rem,1.07rem);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;font-weight:700;margin:0;color:var(--ink);line-height:1;letter-spacing:-.02em;}
+  p{margin:0 0 1rem;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+  .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);display:inline-flex;align-items:center;gap:.8rem;margin:0 0 1.4rem;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold);}
+  .on-dark .eyebrow{color:var(--gold-lt);}
+  .on-dark .eyebrow::before{background:var(--gold-lt);}
+  .mark{display:inline-flex;align-items:baseline;gap:.6rem;font-family:"Bricolage Grotesque",sans-serif;}
+  .mark .nm{font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--ink);}
+  .mark .sb{font-family:"Hanken Grotesk",sans-serif;font-weight:700;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);transform:translateY(-1px);}
 
-  .eyebrow{
-    font-family:"Inter",system-ui,sans-serif;
-    font-size:.7rem;
-    font-weight:500;
-    letter-spacing:.26em;
-    text-transform:uppercase;
-    color:var(--champagne-soft);
-    margin:0 0 1.4rem;
-    display:flex;align-items:center;gap:.85rem;
-  }
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--champagne);display:inline-block;flex:none;}
-  .on-dark .eyebrow{color:var(--champagne);}
+  /* NAV */
+  header.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:var(--paper);border-bottom:1px solid var(--line);transition:background .45s var(--ease),border-color .45s var(--ease);}
+  header.nav .inner{max-width:var(--maxw);margin:0 auto;padding:1rem var(--pad);display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+  nav.links{display:flex;gap:1.7rem;align-items:center;font-size:.77rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;}
+  nav.links a{position:relative;padding:.2rem 0;color:var(--ink);transition:color .25s;cursor:pointer;}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--gold);transition:width .3s var(--ease);}
+  nav.links a:hover::after,nav.links a.active::after{width:100%;}
+  nav.links a.active{color:var(--gold-deep);}
+  .nav-cta{background:var(--gold);color:var(--ink)!important;padding:.6rem 1.05rem;font-weight:700;letter-spacing:.05em;transition:background .25s;}
+  .nav-cta::after{display:none;}
+  .nav-cta:hover{background:var(--gold-lt);}
+  header.nav.scrolled{background:var(--ink);border-bottom-color:var(--line-d);}
+  header.nav.scrolled .mark .nm{color:var(--bone);}
+  header.nav.scrolled .mark .sb{color:var(--gold-lt);}
+  header.nav.scrolled nav.links a{color:var(--bone);}
+  header.nav.scrolled nav.links a.active{color:var(--gold-lt);}
+  .menu-btn{display:none;background:none;border:0;cursor:pointer;width:30px;height:18px;position:relative;}
+  .menu-btn span{position:absolute;left:0;width:100%;height:2px;background:var(--ink);transition:all .3s var(--ease);}
+  .menu-btn span:nth-child(1){top:0;}.menu-btn span:nth-child(2){top:8px;}.menu-btn span:nth-child(3){top:16px;}
+  header.nav.scrolled .menu-btn span{background:var(--bone);}
 
-  .wrap{max-width:1180px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+  /* PAGE ROUTING — all visible without JS, routed with JS */
+  .page{display:block;}
+  .js .page{display:none;}
+  .js .page.active{display:block;animation:pop .5s var(--ease) both;}
+  @keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-  /* ---------- wordmark ---------- */
-  .mark{font-family:"Cormorant Garamond",serif;line-height:1;display:inline-block;}
-  .mark .name{font-weight:600;letter-spacing:.16em;display:block;}
-  .mark .sub{
-    font-family:"Inter",sans-serif;font-weight:500;
-    letter-spacing:.42em;text-transform:uppercase;
-    display:block;margin-top:.45em;color:var(--slate);
-  }
+  .btn{font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;padding:1.05rem 1.9rem;transition:all .25s var(--ease);display:inline-block;cursor:pointer;border:2px solid var(--ink);}
+  .btn-primary{background:var(--ink);border-color:var(--ink);color:var(--bone);}
+  .btn-primary:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+  .btn-ghost{background:transparent;color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--bone);}
+  .on-dark .btn-primary{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+  .on-dark .btn-primary:hover{background:var(--gold-lt);border-color:var(--gold-lt);}
+  .on-dark .btn-ghost{color:var(--bone);border-color:var(--bone);}
+  .on-dark .btn-ghost:hover{background:var(--bone);color:var(--ink);}
 
-  /* ---------- nav ---------- */
-  header.nav{
-    position:fixed;top:0;left:0;right:0;z-index:50;
-    transition:background .5s ease, box-shadow .5s ease, border-color .5s ease;
-    border-bottom:1px solid transparent;
-  }
-  header.nav .inner{
-    max-width:1180px;margin:0 auto;
-    padding:1.05rem var(--pad);
-    display:flex;align-items:center;justify-content:space-between;gap:2rem;
-  }
-  header.nav .brand .name{font-size:1.18rem;letter-spacing:.2em;color:#fff;transition:color .5s ease;}
-  header.nav .brand .sub{font-size:.5rem;letter-spacing:.4em;color:rgba(255,255,255,.55);transition:color .5s ease;}
-  nav.links{display:flex;gap:2.1rem;align-items:center;font-family:"Inter",sans-serif;font-size:.78rem;letter-spacing:.04em;}
-  nav.links a{color:rgba(255,255,255,.78);transition:color .25s ease;position:relative;padding-bottom:2px;}
-  nav.links a:hover{color:#fff;}
-  nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--champagne);transition:width .3s ease;}
-  nav.links a:hover::after{width:100%;}
-  .nav-cta{
-    font-family:"Inter",sans-serif;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
-    border:1px solid rgba(201,168,106,.55);color:var(--champagne);
-    padding:.55rem 1.05rem;border-radius:1px;transition:all .3s ease;white-space:nowrap;
-  }
-  .nav-cta:hover{background:var(--champagne);color:var(--navy);border-color:var(--champagne);}
+  /* HOME HERO */
+  .hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.12fr .88fr;padding-top:64px;}
+  .hero-l{display:flex;flex-direction:column;justify-content:center;padding:clamp(2rem,5vw,4.5rem) clamp(1.3rem,5vw,5rem);}
+  .hero-r{position:relative;overflow:hidden;background:var(--ink);}
+  .hero-r .shot{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 2.2s var(--ease);filter:grayscale(1) contrast(1.05) brightness(.82);}
+  .hero-r .shot.active{opacity:1;}
+  .js .hero-r .shot{animation:kb 24s ease-in-out infinite alternate;}
+  @keyframes kb{from{transform:scale(1.05)}to{transform:scale(1.18)}}
+  .hero-r::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(23,24,27,.55),rgba(23,24,27,.12) 55%),linear-gradient(0deg,rgba(23,24,27,.85),transparent 45%),linear-gradient(0deg,rgba(176,141,79,.18),transparent 60%);}
+  .hero-r .tag{position:absolute;z-index:3;left:0;bottom:0;padding:1.6rem clamp(1.3rem,3vw,2.4rem);}
+  .hero-r .tag .big{display:block;font-family:"Bricolage Grotesque",sans-serif;color:var(--bone);font-weight:800;font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:.95;letter-spacing:-.02em;margin-bottom:.5rem;}
+  .hero-r .tag .sm{display:block;color:rgba(244,241,234,.82);font-weight:500;font-size:.84rem;max-width:34ch;}
+  .hero h1{font-size:clamp(2.9rem,7.2vw,6.2rem);font-weight:800;letter-spacing:-.035em;color:var(--ink);}
+  .hero h1 em{font-style:normal;color:var(--gold-deep);}
+  .line{display:block;overflow:hidden;}.line > span{display:block;}
+  .js .line > span{animation:rise 1.05s var(--ease) both;}
+  .js .line:nth-child(1) > span{animation-delay:.1s;}.js .line:nth-child(2) > span{animation-delay:.22s;}.js .line:nth-child(3) > span{animation-delay:.34s;}
+  @keyframes rise{from{transform:translateY(112%)}to{transform:translateY(0)}}
+  .js .h-eyebrow{animation:fade .8s var(--ease) both;}
+  .hero .lede{max-width:46ch;margin-top:1.8rem;font-size:clamp(1.05rem,1.2vw,1.2rem);color:var(--ink-2);line-height:1.55;}
+  .js .hero .lede{animation:fade .9s var(--ease) .45s both;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem;}
+  .js .cta-row{animation:fade .9s var(--ease) .6s both;}
+  @keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
-  header.nav.scrolled{background:var(--ivory);border-bottom-color:var(--line-light);box-shadow:0 1px 30px rgba(20,34,60,.06);}
-  header.nav.scrolled .brand .name{color:var(--navy);}
-  header.nav.scrolled .brand .sub{color:var(--slate);}
-  header.nav.scrolled nav.links a{color:var(--ink-soft);}
-  header.nav.scrolled nav.links a:hover{color:var(--navy);}
-  header.nav.scrolled .nav-cta{color:var(--champagne-soft);border-color:rgba(201,168,106,.7);}
-  header.nav.scrolled .nav-cta:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+  /* PRESENCE STRIP */
+  .presence{background:var(--ink);color:var(--bone);}
+  .presence .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+  .stat{padding:2.4rem 1.6rem 2.4rem 0;border-right:1px solid var(--line-d);}
+  .stat:last-child{border-right:0;}
+  .stat .v{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2.4rem,4.5vw,3.6rem);color:var(--gold-lt);line-height:1;letter-spacing:-.03em;}
+  .stat .k{margin-top:.7rem;font-size:.78rem;color:rgba(244,241,234,.74);font-weight:500;line-height:1.4;}
 
-  .menu-btn{display:none;background:none;border:0;cursor:pointer;width:30px;height:20px;position:relative;}
-  .menu-btn span{position:absolute;left:0;width:100%;height:1.5px;background:#fff;transition:all .3s ease;}
-  .menu-btn span:nth-child(1){top:2px;}
-  .menu-btn span:nth-child(2){top:9px;}
-  .menu-btn span:nth-child(3){top:16px;}
-  header.nav.scrolled .menu-btn span{background:var(--navy);}
+  /* SECTION scaffolding */
+  .pad{padding-top:clamp(4rem,8vh,6.5rem);padding-bottom:clamp(4rem,8vh,6.5rem);}
+  .lab{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:start;margin-bottom:2.8rem;}
+  .lab .num{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1rem,1.2vw,1.15rem);color:var(--gold-deep);padding-top:.5rem;}
+  .on-dark .lab .num{color:var(--gold-lt);}
+  .lab h2{font-size:clamp(2rem,4.6vw,3.7rem);font-weight:800;letter-spacing:-.03em;max-width:18ch;line-height:1.02;}
+  .lab .intro{margin-top:1.3rem;color:var(--ink-2);font-size:1.1rem;max-width:58ch;}
+  .on-dark h2,.on-dark h3,.on-dark .mark .nm{color:var(--bone);}
+  .on-dark .lab .intro{color:rgba(244,241,234,.78);}
 
-  /* ---------- hero ---------- */
-  .hero{
-    position:relative;background:var(--navy);color:#fff;overflow:hidden;
-    padding-top:clamp(8rem,16vh,11rem);padding-bottom:clamp(5rem,12vh,8rem);
-    border-bottom:1px solid var(--line-dark);
-  }
-  .hero::before{ /* faint engraved seal watermark */
-    content:"E";position:absolute;right:-3vw;bottom:-12vh;
-    font-family:"Cormorant Garamond",serif;font-weight:600;
-    font-size:62vh;line-height:.8;color:rgba(201,168,106,.045);
-    pointer-events:none;user-select:none;
-  }
-  .hero .wrap{position:relative;z-index:2;}
-  .hero h1{
-    font-size:clamp(2.5rem,5.6vw,5.1rem);color:#fff;font-weight:500;
-    max-width:16ch;letter-spacing:-.005em;
-  }
-  .hero h1 em{font-style:italic;color:var(--champagne);}
-  .hero .lede{
-    max-width:54ch;margin-top:1.9rem;font-size:clamp(1.05rem,1.4vw,1.28rem);
-    color:rgba(255,255,255,.82);font-weight:300;line-height:1.6;
-  }
-  .hero-rule{width:64px;height:1px;background:var(--champagne);margin:2.4rem 0 2.4rem;}
-  .cta-row{display:flex;flex-wrap:wrap;gap:1.1rem;align-items:center;}
-  .btn{
-    font-family:"Inter",sans-serif;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
-    padding:.95rem 1.8rem;border-radius:1px;transition:all .3s ease;display:inline-block;cursor:pointer;border:1px solid transparent;
-  }
-  .btn-primary{background:var(--champagne);color:var(--navy);font-weight:600;}
-  .btn-primary:hover{background:#fff;}
-  .btn-ghost{border-color:rgba(255,255,255,.32);color:#fff;}
-  .btn-ghost:hover{border-color:var(--champagne);color:var(--champagne);}
+  /* HOME — what we do / services summary */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink);}
+  .duo .cell{padding:clamp(2rem,3vw,3rem);}
+  .duo .cell:first-child{border-right:2px solid var(--ink);}
+  .duo .cell .dn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--gold);font-size:1.2rem;margin-bottom:1rem;}
+  .duo .cell h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.8rem;}
+  .duo .cell p{color:var(--ink-2);margin:0 0 1.2rem;}
+  .duo .cell .more{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);border-bottom:2px solid var(--gold);padding-bottom:3px;cursor:pointer;}
 
-  /* shared section bits */
-  section{padding-top:clamp(4.5rem,9vh,7.5rem);padding-bottom:clamp(4.5rem,9vh,7.5rem);}
-  .section-head{max-width:64ch;margin-bottom:3.4rem;}
-  .section-head h2{font-size:clamp(2rem,3.6vw,3.1rem);}
-  .section-head .intro{margin-top:1.3rem;color:var(--ink-soft);font-size:1.08rem;max-width:58ch;}
+  .home-cta{background:var(--paper-2);}
+  .home-cta .wrap{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;}
+  .home-cta h2{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;letter-spacing:-.03em;max-width:20ch;}
 
-  /* ---------- mandate / gaps ---------- */
-  .gaps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-light);}
-  .gap{padding:2.6rem 2rem 2.6rem 0;border-right:1px solid var(--line-light);}
+  /* PAGE HEADER (detail pages) */
+  .phead{background:var(--ink);color:var(--bone);padding:calc(64px + clamp(3rem,7vh,5.5rem)) 0 clamp(3rem,7vh,5.5rem);position:relative;overflow:hidden;}
+  .phead .pimg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(1) brightness(.55);opacity:.22;}
+  .phead::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,var(--ink) 50%,rgba(23,24,27,.5));}
+  .phead .wrap{position:relative;z-index:2;}
+  .phead .pn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--gold-lt);font-size:.95rem;letter-spacing:.04em;margin-bottom:1rem;}
+  .phead h1{color:var(--bone);font-size:clamp(2.4rem,6vw,5rem);font-weight:800;letter-spacing:-.035em;max-width:16ch;}
+  .phead p{color:rgba(244,241,234,.8);margin-top:1.4rem;max-width:56ch;font-size:1.1rem;}
+
+  /* generic grids */
+  .gaps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink);}
+  .gap{padding:2.4rem 2rem 0 0;border-right:1px solid var(--line);}
   .gap:last-child{border-right:0;padding-right:0;}
-  .gap .lab{font-family:"Inter",sans-serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--champagne-soft);margin-bottom:1.1rem;}
-  .gap h3{font-size:1.7rem;margin-bottom:.85rem;}
-  .gap p{color:var(--ink-soft);font-size:1rem;margin:0;}
+  .gap .gn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2.6rem,4.5vw,4rem);line-height:1;color:var(--gold);margin-bottom:1.1rem;letter-spacing:-.03em;}
+  .gap .gl{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.7rem;}
+  .gap h3{font-size:1.5rem;font-weight:700;margin-bottom:.7rem;letter-spacing:-.02em;}
+  .gap p{color:var(--ink-2);font-size:1rem;margin:0;padding-bottom:.3rem;}
 
-  /* ---------- services ---------- */
-  .services{background:var(--ivory-warm);}
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-light);border:1px solid var(--line-light);}
-  .svc{background:var(--ivory);padding:2.4rem 2rem 2.5rem;transition:background .35s ease;position:relative;}
-  .svc:hover{background:#fff;}
-  .svc .no{font-family:"Inter",sans-serif;font-size:.72rem;letter-spacing:.12em;color:var(--champagne-soft);margin-bottom:1.3rem;}
-  .svc h3{font-size:1.6rem;margin-bottom:.8rem;line-height:1.12;}
-  .svc p{font-size:.97rem;color:var(--ink-soft);margin:0;}
+  /* feature blocks */
+  .feature{display:grid;grid-template-columns:1.05fr .95fr;border-top:2px solid var(--ink);}
+  .feature .fimg{background-size:cover;background-position:center;min-height:360px;filter:grayscale(1) contrast(1.04) brightness(.92);}
+  .feature .ftxt{padding:clamp(2rem,3.5vw,3.4rem);display:flex;flex-direction:column;justify-content:center;}
+  .feature.rev .fimg{order:-1;}
+  .feature .fk{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:1rem;}
+  .feature h3{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;}
+  .feature p{color:var(--ink-2);font-size:1.04rem;margin:0 0 .6rem;}
+  .feature ul{list-style:none;margin:1rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem;}
+  .feature ul li{font-size:.78rem;font-weight:600;border:1px solid var(--line);padding:.4rem .8rem;color:var(--ink-2);}
 
-  /* ---------- universe (dark band) ---------- */
-  .universe{background:var(--navy);color:#fff;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);}
-  .universe h2{color:#fff;font-size:clamp(2rem,3.6vw,3.1rem);}
-  .universe .intro{color:rgba(255,255,255,.72);}
-  .uni-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:3rem;border-top:1px solid var(--line-dark);}
-  .uni-item{padding:1.9rem 2.2rem 1.9rem 0;border-bottom:1px solid var(--line-dark);display:flex;gap:1.6rem;align-items:baseline;}
-  .uni-item:nth-child(odd){border-right:1px solid var(--line-dark);}
-  .uni-item .ix{font-family:"Inter",sans-serif;font-size:.72rem;color:var(--champagne);letter-spacing:.1em;flex:none;width:2.2rem;padding-top:.3rem;}
-  .uni-item h3{color:#fff;font-size:1.45rem;margin-bottom:.4rem;}
-  .uni-item p{color:rgba(255,255,255,.66);font-size:.96rem;margin:0;}
-  .uni-item:nth-child(even){padding-left:2.2rem;}
+  /* dark scope grid */
+  .scope{background:var(--ink);color:var(--bone);}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);}
+  .svc{background:var(--ink);padding:2.1rem 1.7rem 2.2rem;transition:background .35s var(--ease);}
+  .svc:hover{background:var(--gold);}
+  .svc .sn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.25rem;color:var(--gold-lt);margin-bottom:1.1rem;transition:color .35s;}
+  .svc h4{color:var(--bone);font-size:1.28rem;font-weight:700;margin:0 0 .6rem;letter-spacing:-.02em;line-height:1.06;transition:color .35s;}
+  .svc p{color:rgba(244,241,234,.72);font-size:.92rem;margin:0;transition:color .35s;}
+  .svc:hover .sn,.svc:hover h4{color:var(--ink);}.svc:hover p{color:rgba(23,24,27,.82);}
 
-  /* ---------- approach ---------- */
-  .approach .ap-list{border-top:1px solid var(--line-light);}
-  .ap-row{
-    display:grid;grid-template-columns:5rem 1fr 1.4fr;gap:2.4rem;
-    padding:2.3rem 0;border-bottom:1px solid var(--line-light);align-items:start;
+  /* practice / expertise grid */
+  .pgroup{margin-bottom:2.6rem;}.pgroup:last-child{margin-bottom:0;}
+  .pgroup > h3{font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--gold-deep);margin-bottom:1.1rem;padding-bottom:.6rem;border-bottom:2px solid var(--ink);}
+  .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .pc{background:var(--paper);padding:1.5rem 1.3rem;transition:background .3s;}
+  .pc:hover{background:var(--paper-2);}
+  .pc .pcn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:.85rem;color:var(--gold);margin-bottom:.6rem;}
+  .pc h4{font-size:1.02rem;font-weight:700;margin:0 0 .35rem;line-height:1.12;letter-spacing:-.01em;}
+  .pc p{font-size:.83rem;color:var(--ink-2);margin:0;}
+
+  /* consultants */
+  .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink);}
+  .person{padding:2rem 1.5rem 0 0;border-right:1px solid var(--line);margin-bottom:2rem;}
+  .person:nth-child(4n){border-right:0;}
+  .person .pin{width:52px;height:52px;border:2px solid var(--gold);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:1.1rem;letter-spacing:-.02em;}
+  .person h3{font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.25rem;}
+  .person .role{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:.8rem;line-height:1.4;}
+  .person p{font-size:.88rem;color:var(--ink-2);margin:0;}
+  .group-h{font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--gold-deep);margin:0 0 .4rem;}
+
+  /* offices */
+  .oreg{margin-bottom:2.4rem;}
+  .oreg h3{font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--gold-deep);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--ink);}
+  .ocity{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.2rem 1.5rem;}
+  .ocity span{padding:.55rem 0;border-bottom:1px solid var(--line);font-size:.95rem;font-weight:500;}
+  .ocity span b{font-family:"Bricolage Grotesque",sans-serif;color:var(--gold);font-weight:700;margin-right:.5rem;font-size:.8rem;}
+
+  /* universe / approach / diff (About page) */
+  .uni-grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:3rem;margin-top:2.4rem;border-top:2px solid var(--ink);}
+  .uni{padding:1.6rem 0;border-bottom:1px solid var(--line);display:flex;gap:1.3rem;align-items:baseline;}
+  .uni .ux{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;color:var(--gold);flex:none;width:2rem;}
+  .uni h3{font-size:1.32rem;font-weight:700;margin-bottom:.3rem;letter-spacing:-.02em;}
+  .uni p{color:var(--ink-2);font-size:.92rem;margin:0;}
+  .ap{border-top:2px solid var(--ink);}
+  .ap-row{display:grid;grid-template-columns:4.5rem .9fr 1.3fr;gap:2rem;padding:2.1rem 0;border-bottom:1px solid var(--line);align-items:start;transition:padding-left .35s var(--ease);}
+  .ap-row:hover{padding-left:1rem;}
+  .ap-row .ax{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.1rem;color:var(--gold);line-height:1;letter-spacing:-.03em;}
+  .ap-row h3{font-size:1.45rem;font-weight:700;line-height:1.1;letter-spacing:-.02em;}
+  .ap-row p{color:var(--ink-2);font-size:1rem;margin:0;}
+
+  /* statement */
+  .statement{background:var(--ink);color:var(--bone);}
+  .statement .wrap{padding-top:clamp(3.5rem,7vh,5.5rem);padding-bottom:clamp(3.5rem,7vh,5.5rem);}
+  .statement p{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(1.8rem,4.5vw,3.6rem);line-height:1.04;letter-spacing:-.03em;color:var(--bone);max-width:20ch;margin:0;}
+  .statement p em{font-style:normal;color:var(--gold-lt);}
+
+  /* insight */
+  .study{border:2px solid var(--ink);padding:2.6rem 2.4rem;background:var(--paper-2);max-width:680px;}
+  .study .tg{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:1.2rem;}
+  .study .tt{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.3rem;line-height:.98;letter-spacing:-.03em;margin-bottom:1rem;}
+  .study .ds{color:var(--ink-2);font-size:.98rem;margin-bottom:1.6rem;}
+  .study .more{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);border-bottom:2px solid var(--gold);padding-bottom:3px;cursor:pointer;}
+  .ins-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:2.6rem;}
+  .ins-item{background:var(--paper);padding:1.8rem 1.6rem;}
+  .ins-item .d{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.8rem;}
+  .ins-item h4{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;line-height:1.15;}
+
+  /* partnership */
+  .pp-grid{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);margin-top:1rem;}
+  .pp{padding:2.6rem;}
+  .pp:first-child{border-right:2px solid var(--ink);}
+  .pp .pn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.8rem;color:var(--ink);margin-bottom:.4rem;letter-spacing:-.02em;}
+  .pp .pr{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:1.3rem;}
+  .pp p{font-size:.96rem;color:var(--ink-2);margin:0;}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;}
+  .ctb{border-top:2px solid var(--ink);}
+  .ctr{display:flex;justify-content:space-between;gap:1rem;padding:1.25rem 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .ctr .k{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;flex:none;}
+  .ctr .v{text-align:right;font-size:1rem;}
+  .ctr .v a:hover{color:var(--gold-deep);}
+
+  /* FOOTER */
+  footer.site{background:#121315;color:rgba(244,241,234,.66);padding:3.2rem 0 2.4rem;}
+  footer.site .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;}
+  footer.site .mark .nm{color:var(--bone);font-size:1.4rem;}
+  footer.site .mark .sb{color:var(--gold-lt);}
+  footer.site .endorse{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,234,.5);margin-top:.8rem;font-weight:600;max-width:30ch;}
+  footer.site .fcol h5{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 1rem;font-weight:700;}
+  footer.site .fcol a{display:block;color:rgba(244,241,234,.66);font-size:.88rem;padding:.3rem 0;cursor:pointer;}
+  footer.site .fcol a:hover{color:var(--bone);}
+  footer.site .fine{width:100%;margin-top:2.4rem;padding-top:1.5rem;border-top:1px solid var(--line-d);display:flex;justify-content:space-between;gap:1rem;font-size:.72rem;color:rgba(244,241,234,.5);flex-wrap:wrap;}
+
+  @media(max-width:980px){
+    .hero{grid-template-columns:1fr;}.hero-r{min-height:42vh;order:-1;}.hero-l{padding:2.6rem 1.3rem 3rem;}
+    .pgrid{grid-template-columns:repeat(2,1fr);}
+    .cgrid{grid-template-columns:repeat(2,1fr);}.person:nth-child(4n){border-right:1px solid var(--line);}.person:nth-child(2n){border-right:0;}
+    .ins-list{grid-template-columns:1fr;}
+    .presence .wrap{grid-template-columns:repeat(2,1fr);}.stat:nth-child(2){border-right:0;}.stat{padding-bottom:1.8rem;padding-top:1.8rem;}
   }
-  .ap-row .ix{font-family:"Cormorant Garamond",serif;font-size:1.9rem;color:var(--champagne-soft);font-weight:500;line-height:1;}
-  .ap-row h3{font-size:1.55rem;line-height:1.15;}
-  .ap-row p{color:var(--ink-soft);font-size:1rem;margin:0;}
-
-  /* ---------- differentiation ---------- */
-  .diff{background:var(--ivory-warm);}
-  .diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;}
-  .diff-card{
-    background:var(--ivory);border:1px solid var(--line-light);padding:2.3rem 2.2rem;
-    border-left:2px solid var(--champagne);
-  }
-  .diff-card .vs{font-family:"Inter",sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin-bottom:1rem;}
-  .diff-card h3{font-size:1.5rem;margin-bottom:.7rem;line-height:1.15;}
-  .diff-card p{font-size:.98rem;color:var(--ink-soft);margin:0;}
-
-  /* ---------- insight ---------- */
-  .insight{background:var(--navy-deep);color:#fff;}
-  .insight .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center;}
-  .insight h2{color:#fff;font-size:clamp(2rem,3.4vw,2.9rem);max-width:18ch;}
-  .insight p{color:rgba(255,255,255,.74);font-weight:300;}
-  .study-card{
-    border:1px solid var(--line-dark);background:rgba(201,168,106,.04);
-    padding:2.6rem 2.4rem;position:relative;
-  }
-  .study-card .tag{font-family:"Inter",sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--champagne);margin-bottom:1.4rem;}
-  .study-card .title{font-family:"Cormorant Garamond",serif;font-size:2.1rem;color:#fff;line-height:1.1;margin-bottom:1rem;}
-  .study-card .desc{font-size:.96rem;color:rgba(255,255,255,.7);margin-bottom:1.8rem;}
-  .study-card a{font-family:"Inter",sans-serif;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--champagne);border-bottom:1px solid var(--line-dark);padding-bottom:3px;transition:border-color .3s;}
-  .study-card a:hover{border-bottom-color:var(--champagne);}
-
-  /* ---------- partnership ---------- */
-  .partnership .pp-intro{max-width:62ch;color:var(--ink-soft);font-size:1.12rem;margin-bottom:3rem;}
-  .pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-light);}
-  .pp{padding:2.8rem;}
-  .pp:first-child{border-right:1px solid var(--line-light);}
-  .pp .pname{font-family:"Cormorant Garamond",serif;font-size:1.7rem;color:var(--navy);font-weight:600;margin-bottom:.4rem;letter-spacing:.01em;}
-  .pp .prole{font-family:"Inter",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--champagne-soft);margin-bottom:1.4rem;}
-  .pp p{font-size:.98rem;color:var(--ink-soft);margin:0;}
-  .pp-foot{margin-top:2.6rem;padding-top:2rem;border-top:1px solid var(--line-light);display:flex;gap:1.2rem;align-items:baseline;flex-wrap:wrap;}
-  .pp-foot .lead{font-family:"Cormorant Garamond",serif;font-size:1.35rem;color:var(--navy);font-weight:500;}
-  .pp-foot .leadsub{color:var(--ink-soft);font-size:.98rem;}
-
-  /* ---------- contact ---------- */
-  .contact{background:var(--navy);color:#fff;border-top:1px solid var(--line-dark);}
-  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-  .contact h2{color:#fff;font-size:clamp(2.1rem,3.8vw,3.2rem);max-width:14ch;}
-  .contact .csub{color:rgba(255,255,255,.74);font-weight:300;margin-top:1.4rem;max-width:42ch;}
-  .ct-block{border-top:1px solid var(--line-dark);}
-  .ct-row{display:flex;justify-content:space-between;gap:1rem;padding:1.35rem 0;border-bottom:1px solid var(--line-dark);align-items:baseline;}
-  .ct-row .k{font-family:"Inter",sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne);flex:none;}
-  .ct-row .v{text-align:right;color:rgba(255,255,255,.9);font-size:1rem;}
-  .ct-row .v a:hover{color:var(--champagne);}
-  .contact .btn-primary{margin-top:2.3rem;}
-
-  /* ---------- footer ---------- */
-  footer.site{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:3.4rem 0 2.6rem;border-top:1px solid var(--line-dark);}
-  footer.site .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;}
-  footer.site .brand .name{font-size:1.25rem;letter-spacing:.2em;color:#fff;}
-  footer.site .brand .sub{font-size:.52rem;letter-spacing:.4em;color:var(--champagne);}
-  footer.site .endorse{font-family:"Inter",sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.9rem;}
-  footer.site .addr{font-size:.9rem;line-height:1.7;text-align:right;}
-  footer.site .fine{width:100%;margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;gap:1rem;font-family:"Inter",sans-serif;font-size:.7rem;letter-spacing:.06em;color:rgba(255,255,255,.38);flex-wrap:wrap;}
-
-  /* ---------- reveal anim ---------- */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);}
-  .reveal.in{opacity:1;transform:none;}
-
-  /* ---------- responsive ---------- */
-  @media(max-width:900px){
-    .gaps,.svc-grid,.uni-grid,.diff-grid,.pp-grid{grid-template-columns:1fr;}
-    .gap{border-right:0;border-bottom:1px solid var(--line-light);padding:2.2rem 0;}
-    .gap:last-child{border-bottom:0;}
-    .uni-item:nth-child(odd){border-right:0;}
-    .uni-item:nth-child(even){padding-left:0;}
-    .uni-item{padding-left:0;padding-right:0;}
-    .pp:first-child{border-right:0;border-bottom:1px solid var(--line-light);}
-    .ap-row{grid-template-columns:1fr;gap:.8rem;}
-    .ap-row .ix{font-size:1.6rem;}
-    .insight .wrap,.contact .wrap{grid-template-columns:1fr;gap:2.6rem;}
-    nav.links{display:none;position:fixed;top:0;left:0;right:0;background:var(--navy);flex-direction:column;align-items:flex-start;gap:0;padding:5.5rem var(--pad) 2rem;height:100vh;}
+  @media(max-width:860px){
+    .gaps,.svc-grid,.uni-grid,.pp-grid,.feature,.duo,.contact-grid{grid-template-columns:1fr;}
+    .feature.rev .fimg{order:0;}.feature .fimg{min-height:240px;}
+    .duo .cell:first-child{border-right:0;border-bottom:2px solid var(--ink);}
+    .gap{border-right:0;border-bottom:1px solid var(--line);padding:2rem 0;}.gap:last-child{border-bottom:0;}
+    .ap-row{grid-template-columns:1fr;gap:.8rem;}.ap-row:hover{padding-left:0;}
+    .pp:first-child{border-right:0;border-bottom:2px solid var(--ink);}
+    .lab{grid-template-columns:1fr;gap:.6rem;}
+    .home-cta .wrap{flex-direction:column;align-items:flex-start;}
+    nav.links{display:none;position:fixed;inset:0;background:var(--ink);flex-direction:column;align-items:flex-start;gap:0;padding:5.5rem var(--pad) 2rem;height:100svh;overflow:auto;}
     nav.links.open{display:flex;}
-    nav.links a{color:#fff;font-size:1.35rem;font-family:"Cormorant Garamond",serif;letter-spacing:.04em;padding:1rem 0;width:100%;border-bottom:1px solid var(--line-dark);}
-    .nav-cta{display:none;}
-    .menu-btn{display:block;z-index:60;}
-    header.nav.menu-open .menu-btn span{background:#fff;}
-    header.nav.menu-open .menu-btn span:nth-child(1){top:9px;transform:rotate(45deg);}
-    header.nav.menu-open .menu-btn span:nth-child(2){opacity:0;}
-    header.nav.menu-open .menu-btn span:nth-child(3){top:9px;transform:rotate(-45deg);}
+    nav.links a{color:var(--bone);font-family:"Bricolage Grotesque",sans-serif;font-size:1.55rem;font-weight:700;text-transform:none;letter-spacing:-.02em;padding:.85rem 0;width:100%;border-bottom:1px solid var(--line-d);}
+    nav.links a.nav-cta{background:none;padding:.85rem 0;color:var(--gold-lt)!important;}
+    .menu-btn{display:block;z-index:70;}
+    header.nav.menu-open{background:var(--ink);}header.nav.menu-open .menu-btn span{background:var(--bone);}header.nav.menu-open .mark .nm{color:var(--bone);}
+    header.nav.menu-open .menu-btn span:nth-child(1){top:8px;transform:rotate(45deg);}header.nav.menu-open .menu-btn span:nth-child(2){opacity:0;}header.nav.menu-open .menu-btn span:nth-child(3){top:8px;transform:rotate(-45deg);}
   }
-  @media(max-width:560px){
-    .ct-row{flex-direction:column;gap:.3rem;}
-    .ct-row .v{text-align:left;}
-    footer.site .addr{text-align:left;}
-    footer.site .wrap{align-items:flex-start;}
+  @media(max-width:540px){
+    .pgrid,.cgrid{grid-template-columns:1fr;}.person{border-right:0!important;}
+    .presence .wrap{grid-template-columns:1fr;}.stat{border-right:0;}
+    .ctr{flex-direction:column;gap:.3rem;}.ctr .v{text-align:left;}
+    footer.site .wrap{flex-direction:column;}
   }
-
   @media(prefers-reduced-motion:reduce){
-    *{scroll-behavior:auto;}
-    .reveal{opacity:1;transform:none;transition:none;}
+    *{scroll-behavior:auto!important;}
+    .hero-r .shot{animation:none!important;}
+    .js .line>span,.js .h-eyebrow,.js .hero .lede,.js .cta-row,.js .page.active{animation:none!important;}
   }
-  :focus-visible{outline:2px solid var(--champagne);outline-offset:3px;}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
 </style>
 </head>
 <body>
 
-<!-- ===================== NAV ===================== -->
 <header class="nav" id="nav">
   <div class="inner">
-    <a class="brand mark" href="#top" aria-label="EMAS Board Services home">
-      <span class="name">EMAS</span>
-      <span class="sub">Board Services</span>
+    <a class="mark" data-page="page-home" href="#" aria-label="EMAS Board Services home">
+      <span class="nm">EMAS</span><span class="sb">Board Services</span>
     </a>
     <nav class="links" id="navlinks">
-      <a href="#mandate">The Mandate</a>
-      <a href="#services">Services</a>
-      <a href="#universe">The Board Universe</a>
-      <a href="#approach">Approach</a>
-      <a href="#insight">Insight</a>
-      <a href="#partnership">The Partnership</a>
-      <a class="nav-cta" href="#contact">Request an introduction</a>
+      <a data-page="page-about" href="#page-about">About</a>
+      <a data-page="page-services" href="#page-services">Services</a>
+      <a data-page="page-expertise" href="#page-expertise">Expertise</a>
+      <a data-page="page-consultants" href="#page-consultants">Consultants</a>
+      <a data-page="page-offices" href="#page-offices">Offices</a>
+      <a data-page="page-insights" href="#page-insights">Insights</a>
+      <a data-page="page-contact" href="#page-contact">Contact</a>
+      <a class="nav-cta" data-page="page-contact" href="#page-contact">Request an introduction</a>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- ===================== HERO ===================== -->
-<section class="hero on-dark" id="top">
-  <div class="wrap">
-    <p class="eyebrow">An EMA Partners and STAIR Digital venture</p>
-    <h1>Board composition, treated as a <em>discipline</em>.</h1>
-    <p class="lede">EMAS Board Services brings the rigour of search and the judgement of governance to the one decision boards still make by habit: who sits around the table.</p>
-    <div class="hero-rule"></div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#contact">Request an introduction</a>
-      <a class="btn btn-ghost" href="#insight">Read our thinking</a>
+<main>
+
+<!-- ====================== HOME ====================== -->
+<section class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-l">
+      <p class="eyebrow h-eyebrow">An EMA Partners and STAIR Digital venture</p>
+      <h1>
+        <span class="line"><span>Board</span></span>
+        <span class="line"><span>composition,</span></span>
+        <span class="line"><span>as a <em>discipline.</em></span></span>
+      </h1>
+      <p class="lede">EMAS Board Services is an India owned board search, evaluation and governance partner for India's listed and ambitious private companies, backed by a global executive search network.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" data-page="page-contact" href="#page-contact">Request an introduction</a>
+        <a class="btn btn-ghost" data-page="page-services" href="#page-services">What we do</a>
+      </div>
+    </div>
+    <div class="hero-r" id="heroR">
+      <div class="shot active" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=70')"></div>
+      <div class="shot" style="background-image:url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1600&q=70')"></div>
+      <div class="shot" style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=70')"></div>
+      <div class="tag">
+        <span class="big">India owned.<br>Board led.</span>
+        <span class="sm">The right board, independently found and honestly assessed.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- presence -->
+  <div class="presence">
+    <div class="wrap" style="padding-top:clamp(2.6rem,5vh,3.6rem);padding-bottom:clamp(2.6rem,5vh,3.6rem)">
+      <div class="stat"><div class="v">1988</div><div class="k">The global network's founding year</div></div>
+      <div class="stat"><div class="v">40+</div><div class="k">Offices across five continents</div></div>
+      <div class="stat"><div class="v">200+</div><div class="k">Consultants worldwide</div></div>
+      <div class="stat"><div class="v">India</div><div class="k">Owned, and board led</div></div>
+    </div>
+  </div>
+
+  <!-- overall company -->
+  <div class="pad">
+    <div class="wrap">
+      <div class="lab">
+        <div class="num">Who we are</div>
+        <div>
+          <h2>An institution built for the board, and the board alone.</h2>
+          <p class="intro">EMAS Board Services pairs the reach of one of India's leading executive search firms with four decades of board experience, to make board composition a disciplined, independent exercise rather than a matter of habit. We find directors, evaluate boards and advise on governance, as one accountable partner.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- what we do / services summary -->
+  <div class="wrap" style="padding-bottom:clamp(4rem,8vh,6.5rem)">
+    <div class="duo">
+      <div class="cell">
+        <div class="dn">01</div>
+        <h3>Board Search</h3>
+        <p>Independent search for directors, committee chairs and the wider board universe, identified and assessed for fit with promoter, board and management.</p>
+        <span class="more" data-page="page-services">Explore services &nbsp;&rarr;</span>
+      </div>
+      <div class="cell">
+        <div class="dn">02</div>
+        <h3>Board Advisory and Evaluation</h3>
+        <p>Composition strategy, annual board evaluation, strategic governance advisory and compensation advice, built to produce insight a board can act on.</p>
+        <span class="more" data-page="page-services">Explore services &nbsp;&rarr;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- home CTA -->
+  <div class="home-cta">
+    <div class="wrap" style="padding-top:clamp(3rem,6vh,4.5rem);padding-bottom:clamp(3rem,6vh,4.5rem)">
+      <h2>Considering board composition as a serious, independent exercise?</h2>
+      <a class="btn btn-primary" data-page="page-contact" href="#page-contact">Request an introduction</a>
     </div>
   </div>
 </section>
 
-<!-- ===================== MANDATE ===================== -->
-<section id="mandate">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Why this firm exists</p>
-      <h2>Three gaps that personal networks cannot close.</h2>
-      <p class="intro">Board work is mandated for thousands of companies, yet it remains largely unserved by any dedicated, independent institution. We were built to own the combination that no one else holds.</p>
+<!-- ====================== ABOUT ====================== -->
+<section class="page" id="page-about">
+  <div class="phead">
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="wrap">
+      <div class="pn">About</div>
+      <h1>An institution built for the board.</h1>
+      <p>Board work is mandated for thousands of companies, yet it remains largely unserved by any dedicated, independent institution. EMAS exists to close three gaps that personal networks cannot.</p>
     </div>
-    <div class="gaps reveal">
-      <div class="gap">
-        <div class="lab">The composition gap</div>
-        <h3>Search, not courtesy</h3>
-        <p>Seats are filled through personal address books rather than structured, independent search. The annual evaluation every listed company must run is too often a compliance file, not a source of insight.</p>
-      </div>
-      <div class="gap">
-        <div class="lab">The capability gap</div>
-        <h3>Both halves, in one place</h3>
-        <p>Search firms treat board seats as an extension of CXO hiring. Governance consultants advise on process but hold no director talent. Neither party holds both the discipline and the network.</p>
-      </div>
-      <div class="gap">
-        <div class="lab">The ownership gap</div>
-        <h3>India owned, board led</h3>
-        <p>Global brands carry parent reporting lines and sanction sensitivity that governance sensitive boards find uncomfortable. An India owned platform turns that discomfort into a durable advantage.</p>
+  </div>
+
+  <div class="pad">
+    <div class="wrap">
+      <div class="gaps">
+        <div class="gap"><div class="gn">01</div><div class="gl">The composition gap</div><h3>Search, not courtesy</h3><p>Seats are filled through personal address books rather than structured, independent search, and the annual evaluation every listed company must run is too often a compliance file, not a source of insight.</p></div>
+        <div class="gap"><div class="gn">02</div><div class="gl">The capability gap</div><h3>Both halves, in one place</h3><p>Search firms treat board seats as an extension of CXO hiring. Governance consultants advise on process but hold no director talent. Neither party holds both the discipline and the network.</p></div>
+        <div class="gap"><div class="gn">03</div><div class="gl">The ownership gap</div><h3>India owned, board led</h3><p>Global brands carry parent reporting lines and sanction sensitivity that governance sensitive boards find uncomfortable. An India owned platform turns that discomfort into a durable advantage.</p></div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ===================== SERVICES ===================== -->
-<section class="services" id="services">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">What we do</p>
-      <h2>One accountable partner across the board lifecycle.</h2>
-      <p class="intro">A single relationship that finds directors, evaluates boards and advises on governance, in place of a fragmented mix of search firms, consultants and personal networks.</p>
-    </div>
-    <div class="svc-grid reveal">
-      <div class="svc">
-        <div class="no">01</div>
-        <h3>Board Composition Strategy</h3>
-        <p>Skill matrix and gap analysis, board size and structure, diversity and tenure planning, committee architecture, and alignment of the board to strategy, ownership and regulation.</p>
-      </div>
-      <div class="svc">
-        <div class="no">02</div>
-        <h3>Director Search and Hiring</h3>
-        <p>Independent directors and committee chairs identified, referenced and assessed for fit with promoter, board and management, across the full director universe rather than independent seats alone.</p>
-      </div>
-      <div class="svc">
-        <div class="no">03</div>
-        <h3>Board Evaluation and Effectiveness</h3>
-        <p>Annual evaluation that produces insight a board can act on rather than a filing. Committee, chair and decision quality assessment, with action planning that lifts how the board functions.</p>
-      </div>
-      <div class="svc">
-        <div class="no">04</div>
-        <h3>Renewal and Succession</h3>
-        <p>Director rotation and board refresh, succession for board and committee leadership, and a long-term director pipeline maintained against the board's future capability needs.</p>
-      </div>
-      <div class="svc">
-        <div class="no">05</div>
-        <h3>Strategic Governance Advisory</h3>
-        <p>Board readiness for IPOs and institutional capital, promoter alignment, governance for technology and AI led transformation, and risk oversight architecture for high-stakes moments.</p>
-      </div>
-      <div class="svc">
-        <div class="no">06</div>
-        <h3>Compensation and Policy Advisory</h3>
-        <p>Director compensation benchmarked against a chosen peer set, differentiated committee pay, board and committee charters, and governance frameworks kept current and defensible.</p>
+  <div class="statement"><div class="wrap"><p>Led by people who have sat on boards, <em>not merely filled them.</em></p></div></div>
+
+  <div class="pad">
+    <div class="wrap">
+      <div class="lab"><div class="num">How we work</div><div><h2>Method where the decision is still made by habit.</h2></div></div>
+      <div class="ap">
+        <div class="ap-row"><span class="ax">01</span><h3>Search led, not nomination led</h3><p>We advocate that board composition be a disciplined, independent search rather than a personal favour, while respecting the discretion the network has always provided.</p></div>
+        <div class="ap-row"><span class="ax">02</span><h3>A pipeline already held</h3><p>From a standing pool of several hundred sitting and aspiring directors, we can say within hours which two or three names fit a seat.</p></div>
+        <div class="ap-row"><span class="ax">03</span><h3>Evaluation that is acted upon</h3><p>Our framework is built to produce insight, not uniform scores. Value is created only when the committee chair acts on the findings.</p></div>
+        <div class="ap-row"><span class="ax">04</span><h3>Board hiring is not CXO hiring</h3><p>The client meets only the candidate they are minded to appoint. We handle the search, and every ego, with care.</p></div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ===================== UNIVERSE ===================== -->
-<section class="universe on-dark" id="universe">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">The expanded mandate</p>
-      <h2>We stake claim to the full board universe, not the independent director alone.</h2>
-      <p class="intro">The seats around the table are widening well beyond the independent director. We hold the discipline and the talent for every construct a modern board now needs.</p>
-    </div>
-    <div class="uni-grid reveal">
-      <div class="uni-item">
-        <span class="ix">i</span>
-        <div><h3>Governance boards</h3><p>Group-level structures spanning multiple legal entities under one family, sometimes constituted overseas for a global flavour.</p></div>
-      </div>
-      <div class="uni-item">
-        <span class="ix">ii</span>
-        <div><h3>Advisory councils</h3><p>Non-statutory boards built for specific purposes, such as succession or a particular strategic question.</p></div>
-      </div>
-      <div class="uni-item">
-        <span class="ix">iii</span>
-        <div><h3>Family boards and councils</h3><p>An increasingly critical area, including the appointment of independent external members to the family council.</p></div>
-      </div>
-      <div class="uni-item">
-        <span class="ix">iv</span>
-        <div><h3>Non-executive directors</h3><p>The non-executive, non-independent seat, used where a candidate is conflicted or has exhausted tenure limits.</p></div>
-      </div>
-      <div class="uni-item">
-        <span class="ix">v</span>
-        <div><h3>Emeritus chairpersons</h3><p>An under-exploited construct that has to be structured properly, with rights, obligations and remuneration defined.</p></div>
-      </div>
-      <div class="uni-item">
-        <span class="ix">vi</span>
-        <div><h3>Those Charged With Governance</h3><p>An evolving construct expected to have wide-ranging impact, including on pre-audit-committee engagement.</p></div>
+  <div class="pad" style="background:var(--paper-2);padding-top:clamp(3.5rem,7vh,5.5rem)">
+    <div class="wrap">
+      <div class="lab"><div class="num">The board universe</div><div><h2>The full board universe, not the independent seat alone.</h2></div></div>
+      <div class="uni-grid">
+        <div class="uni"><span class="ux">01</span><div><h3>Governance boards</h3><p>Group-level structures spanning multiple legal entities under one family, sometimes constituted overseas.</p></div></div>
+        <div class="uni"><span class="ux">02</span><div><h3>Advisory councils</h3><p>Non-statutory boards built for specific purposes, such as succession or a strategic question.</p></div></div>
+        <div class="uni"><span class="ux">03</span><div><h3>Family boards and councils</h3><p>Including the appointment of independent external members to the family council.</p></div></div>
+        <div class="uni"><span class="ux">04</span><div><h3>Non-executive directors</h3><p>The non-executive, non-independent seat, used where a candidate is conflicted or has exhausted tenure.</p></div></div>
+        <div class="uni"><span class="ux">05</span><div><h3>Emeritus chairpersons</h3><p>An under-exploited construct that has to be structured properly, with rights and remuneration defined.</p></div></div>
+        <div class="uni"><span class="ux">06</span><div><h3>Those Charged With Governance</h3><p>An evolving construct expected to have wide-ranging impact, including pre-audit engagement.</p></div></div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ===================== APPROACH ===================== -->
-<section class="approach" id="approach">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">How we work</p>
-      <h2>Method where the decision is still made by habit.</h2>
-    </div>
-    <div class="ap-list reveal">
-      <div class="ap-row">
-        <span class="ix">i</span>
-        <h3>Search led, not nomination led</h3>
-        <p>We advocate that board composition be a disciplined, independent search rather than a personal favour, while respecting the discretion the network has always provided.</p>
-      </div>
-      <div class="ap-row">
-        <span class="ix">ii</span>
-        <h3>A pipeline already held</h3>
-        <p>We do not begin searching when the mandate lands. From a standing pool of several hundred sitting and aspiring directors, we can say within hours which two or three names fit a seat.</p>
-      </div>
-      <div class="ap-row">
-        <span class="ix">iii</span>
-        <h3>Evaluation that is acted upon</h3>
-        <p>Our framework is built to produce insight, not uniform scores. An evaluation creates value only when the committee chair acts on the findings and works with directors to lift the board.</p>
-      </div>
-      <div class="ap-row">
-        <span class="ix">iv</span>
-        <h3>Board hiring is not CXO hiring</h3>
-        <p>The client meets only the candidate they are minded to appoint. Parading several senior people is an affront to their standing, so we handle the search, and every ego, with care.</p>
+  <div class="pad">
+    <div class="wrap">
+      <div class="lab"><div class="num">The partnership</div><div><h2>Two firms, one board-focused institution.</h2></div></div>
+      <div class="pp-grid">
+        <div class="pp"><div class="pn">EMA Partners</div><div class="pr">Executive search, India owned, global network</div><p>A leading India based executive search firm, part of a global partnership founded in 1988 with more than 40 offices and 200+ consultants across five continents, with deep CXO and board reach.</p></div>
+        <div class="pp"><div class="pn">STAIR Digital</div><div class="pr">Governance and AI transformation advisory</div><p>A governance and artificial intelligence advisory firm positioned where governance, AI and capital converge, carrying four decades of board experience through its chairman, Mr Shailesh Haribhakti.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== DIFFERENTIATION ===================== -->
-<section class="diff" id="differentiation">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Why boards trust us</p>
-      <h2>What competitors cannot claim together.</h2>
-      <p class="intro">Genuine board lived experience, independence from the executive search conflict, and India owned discretion, in one accountable institution.</p>
+<!-- ====================== SERVICES ====================== -->
+<section class="page" id="page-services">
+  <div class="phead">
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="wrap">
+      <div class="pn">Services</div>
+      <h1>One accountable partner, the whole board lifecycle.</h1>
+      <p>A single relationship that finds directors, evaluates boards and advises on governance, in place of a fragmented mix of search firms, consultants and personal networks.</p>
     </div>
-    <div class="diff-grid reveal">
-      <div class="diff-card">
-        <div class="vs">Over executive search firms</div>
-        <h3>No CXO conflict</h3>
-        <p>A firm that also sells the chief executive into the company cannot independently assess the board that governs that executive. We carry no such conflict, and bring director-specific judgement rather than a recruiter's lens.</p>
+  </div>
+
+  <div class="wrap" style="padding-top:clamp(3.5rem,7vh,5rem)">
+    <div class="feature">
+      <div class="fimg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=70')"></div>
+      <div class="ftxt">
+        <div class="fk">Service one</div>
+        <h3>Board Search</h3>
+        <p>Independent search for independent directors, committee chairs and the wider director universe, identified, referenced and assessed for fit with promoter, board and management. Search led, never a personal favour.</p>
+        <ul><li>Independent directors</li><li>Committee chairs</li><li>Family and advisory boards</li><li>Emeritus and non-executive seats</li></ul>
       </div>
-      <div class="diff-card">
-        <div class="vs">Over governance consultants</div>
-        <h3>We advise and we find</h3>
-        <p>Consultants advise on process but hold no director talent and rarely carry lived board experience. We both advise and find, and we speak from the chair's side of the table, not the auditor's.</p>
+    </div>
+    <div class="feature rev">
+      <div class="fimg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=70')"></div>
+      <div class="ftxt">
+        <div class="fk">Service two</div>
+        <h3>Board Advisory and Evaluation</h3>
+        <p>Composition strategy, annual board evaluation, strategic governance advisory and compensation advice, built to produce insight a board can act on rather than a filing it can store. Advice and execution, from one team.</p>
+        <ul><li>Composition strategy</li><li>Board evaluation</li><li>Governance advisory</li><li>Compensation advisory</li></ul>
       </div>
-      <div class="diff-card">
-        <div class="vs">Over personal networks</div>
-        <h3>Method, with discretion</h3>
-        <p>The status quo is a chairperson's address book: fast, comfortable and structurally narrow. We widen the field with method while respecting the discretion the network provided.</p>
-      </div>
-      <div class="diff-card">
-        <div class="vs">Over global advisory brands</div>
-        <h3>India owned, India led</h3>
-        <p>For governance sensitive and strategically sensitive boards, an India owned partner removes the parent reporting and sanction sensitivity global brands carry, without giving up rigour.</p>
+    </div>
+  </div>
+
+  <div class="pad scope on-dark" style="margin-top:clamp(3rem,6vh,4.5rem)">
+    <div class="wrap">
+      <div class="lab"><div class="num">Full scope</div><div><h2>Six disciplines, one mandate.</h2></div></div>
+      <div class="svc-grid">
+        <div class="svc"><div class="sn">01</div><h4>Board Composition Strategy</h4><p>Skill matrix and gap analysis, board size and structure, diversity and tenure planning, committee architecture, alignment to strategy, ownership and regulation.</p></div>
+        <div class="svc"><div class="sn">02</div><h4>Director Search and Hiring</h4><p>Directors and committee chairs identified, referenced and assessed for fit, across the full director universe.</p></div>
+        <div class="svc"><div class="sn">03</div><h4>Board Evaluation and Effectiveness</h4><p>Annual evaluation that produces insight a board can act on, with action planning that lifts how the board functions.</p></div>
+        <div class="svc"><div class="sn">04</div><h4>Renewal and Succession</h4><p>Board refresh, succession for board and committee leadership, and a long-term director pipeline.</p></div>
+        <div class="svc"><div class="sn">05</div><h4>Strategic Governance Advisory</h4><p>IPO and institutional capital readiness, promoter alignment, governance for AI led transformation, and risk oversight.</p></div>
+        <div class="svc"><div class="sn">06</div><h4>Compensation and Policy Advisory</h4><p>Benchmarked director compensation, differentiated committee pay, board charters and defensible frameworks.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== INSIGHT ===================== -->
-<section class="insight on-dark" id="insight">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">Thought leadership</p>
-      <h2>We intend to be introduced by our thinking.</h2>
-      <p>Authority in board work is earned through published thinking, senior relationships and a small number of visible, well handled mandates, never through paid acquisition. Our flagship study is the centrepiece of how we enter the room.</p>
-    </div>
-    <div class="study-card reveal">
-      <div class="tag">Flagship governance study</div>
-      <div class="title">The Future of Boards</div>
-      <p class="desc">A survey of the unusual board constructs now emerging across India's leading companies, jointly authored and shared with the directors who shape them.</p>
-      <a href="#contact">Register your interest &nbsp;&rarr;</a>
+<!-- ====================== EXPERTISE ====================== -->
+<section class="page" id="page-expertise">
+  <div class="phead">
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="wrap">
+      <div class="pn">Expertise</div>
+      <h1>Enhancing capability across sectors and functions.</h1>
+      <p>Board level reach across the industry practices of a global search network, the functions that define a board, and the specialties shaping its future.</p>
     </div>
   </div>
-</section>
 
-<!-- ===================== PARTNERSHIP ===================== -->
-<section class="partnership" id="partnership">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">The partnership</p>
-      <h2>Two firms, one board-focused institution.</h2>
-    </div>
-    <p class="pp-intro reveal">EMAS Board Services is a joint venture held separate from conventional executive search, so that it is read as a governance institution rather than a recruitment desk. It combines the network and the judgement that boards have had to assemble piecemeal until now.</p>
-    <div class="pp-grid reveal">
-      <div class="pp">
-        <div class="pname">EMA Partners</div>
-        <div class="prole">Executive search, India listed and India owned</div>
-        <p>A leading India based executive search firm with deep CXO and senior leadership reach, listed-company credibility, and the operational discipline to execute board mandates with confidentiality and rigour.</p>
+  <div class="pad">
+    <div class="wrap">
+      <div class="pgroup">
+        <h3>Industry Practices</h3>
+        <div class="pgrid">
+          <div class="pc"><div class="pcn">01</div><h4>Financial Services</h4><p>Banks, NBFCs, insurers, asset and fund management.</p></div>
+          <div class="pc"><div class="pcn">02</div><h4>Healthcare and Life Sciences</h4><p>Pharmaceuticals, hospitals, devices and regulated life sciences.</p></div>
+          <div class="pc"><div class="pcn">03</div><h4>Industrial and Manufacturing</h4><p>Capital goods, infrastructure and engineering-led enterprises.</p></div>
+          <div class="pc"><div class="pcn">04</div><h4>Technology and Communications</h4><p>Software, IT services, telecom and digital businesses.</p></div>
+          <div class="pc"><div class="pcn">05</div><h4>Consumer, Retail and Services</h4><p>Branded consumer, retail and fast-moving consumer goods.</p></div>
+          <div class="pc"><div class="pcn">06</div><h4>Energy and Natural Resources</h4><p>Conventional and renewable energy, utilities and resources.</p></div>
+          <div class="pc"><div class="pcn">07</div><h4>Government and Not for Profit</h4><p>Public institutions and not-for-profit organisations.</p></div>
+          <div class="pc"><div class="pcn">08</div><h4>Professional and Regulated Services</h4><p>Listed and regulated services where governance is mission critical.</p></div>
+        </div>
       </div>
-      <div class="pp">
-        <div class="pname">STAIR Digital</div>
-        <div class="prole">Governance and AI transformation advisory</div>
-        <p>A governance and artificial intelligence advisory firm positioned where governance, AI and capital converge, carrying four decades of board experience through its chairman, Mr Shailesh Haribhakti.</p>
-      </div>
-    </div>
-    <div class="pp-foot reveal">
-      <span class="lead">Led by people who have sat on boards,</span>
-      <span class="leadsub">not merely filled them.</span>
-    </div>
-  </div>
-</section>
 
-<!-- ===================== CONTACT ===================== -->
-<section class="contact on-dark" id="contact">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">Begin a conversation</p>
-      <h2>Request an introduction.</h2>
-      <p class="csub">For chairpersons, promoters and nomination committees considering board composition, evaluation or governance as a serious, independent exercise.</p>
-      <a class="btn btn-primary" href="mailto:saraff@stair.digital?subject=Introduction%20%E2%80%94%20EMAS%20Board%20Services">Write to us</a>
-    </div>
-    <div class="reveal">
-      <div class="ct-block">
-        <div class="ct-row"><span class="k">Contact</span><span class="v">Shubham Saraff</span></div>
-        <div class="ct-row"><span class="k">Email</span><span class="v"><a href="mailto:saraff@stair.digital">saraff@stair.digital</a></span></div>
-        <div class="ct-row"><span class="k">Telephone</span><span class="v"><a href="tel:+919930220342">+91 99302 20342</a></span></div>
-        <div class="ct-row"><span class="k">Office</span><span class="v">42 Free Press House, Nariman Point,<br>Mumbai 400021</span></div>
+      <div class="pgroup">
+        <h3>Functional Practices</h3>
+        <div class="pgrid">
+          <div class="pc"><div class="pcn">01</div><h4>Board and CEO Services</h4><p>Director search, board composition, evaluation and succession.</p></div>
+          <div class="pc"><div class="pcn">02</div><h4>Financial Officers</h4><p>CFO and finance leadership for boards and audit committees.</p></div>
+          <div class="pc"><div class="pcn">03</div><h4>Information Technology Officers</h4><p>CIO, CTO and technology leadership for the modern board.</p></div>
+          <div class="pc"><div class="pcn">04</div><h4>Compensation and Policy</h4><p>Benchmarked compensation, charters and governance frameworks.</p></div>
+        </div>
+      </div>
+
+      <div class="pgroup">
+        <h3>Specialty Practices</h3>
+        <div class="pgrid">
+          <div class="pc"><div class="pcn">01</div><h4>AI and ML Governance</h4><p>Board oversight for technology and AI led transformation.</p></div>
+          <div class="pc"><div class="pcn">02</div><h4>Family Boards and Councils</h4><p>Independent members for family boards and councils.</p></div>
+          <div class="pc"><div class="pcn">03</div><h4>IPO and Capital-Markets Readiness</h4><p>Board readiness for listing and institutional capital.</p></div>
+          <div class="pc"><div class="pcn">04</div><h4>Those Charged With Governance</h4><p>Emerging governance constructs and pre-audit engagement.</p></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
+<!-- ====================== CONSULTANTS ====================== -->
+<section class="page" id="page-consultants">
+  <div class="phead">
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="wrap">
+      <div class="pn">Consultants</div>
+      <h1>The people behind the mandate.</h1>
+      <p>EMAS draws its leadership from two established firms, supported by a global partnership of more than 200 consultants across 40+ offices and five continents.</p>
+    </div>
+  </div>
+
+  <div class="pad">
+    <div class="wrap">
+      <p class="group-h">EMAS leadership</p>
+      <div class="cgrid">
+        <div class="person"><div class="pin">KS</div><h3>K. Sudarshan</h3><div class="role">Managing Director, EMA Partners India</div><p>Leads the firm across India, Singapore and the UAE, and heads its Board and CEO practice, with over two decades in executive search.</p></div>
+        <div class="person"><div class="pin">RB</div><h3>Reet Bhambhani</h3><div class="role">Chief Operating Officer, EMA Partners India</div><p>Oversees operations and delivery, with a focus on financial services and digital leadership.</p></div>
+        <div class="person"><div class="pin">SH</div><h3>Shailesh Haribhakti</h3><div class="role">Chairman, STAIR Digital</div><p>A chartered accountant and serial board chair with four decades on the boards of leading listed companies in India.</p></div>
+        <div class="person"><div class="pin">SS</div><h3>Shubham Saraff</h3><div class="role">Co-Founder and Director, STAIR Digital</div><p>An Oxford MBA working at the intersection of governance, artificial intelligence and capital, leading the venture's build.</p></div>
+      </div>
+
+      <p class="group-h" style="margin-top:2.4rem">From the EMA Partners network</p>
+      <div class="cgrid">
+        <div class="person"><div class="pin">SK</div><h3>S. Krishnaprakash</h3><div class="role">Managing Partner, EMA Partners India</div><p>Co-founded EMA Partners India in 2003, with deep expertise across industrial, life sciences and healthcare leadership.</p></div>
+        <div class="person"><div class="pin">AH</div><h3>Dr Archana Hingorani</h3><div class="role">Senior Advisor</div><p>Over three decades in financial services and private equity, and a serving independent director on listed boards.</p></div>
+        <div class="person"><div class="pin">AD</div><h3>Arun Dasmahapatra</h3><div class="role">Partner, Leadership Advisory</div><p>More than four decades across leadership advisory, executive search and general management, based in Bengaluru.</p></div>
+        <div class="person"><div class="pin">BH</div><h3>Birger Husted</h3><div class="role">Managing Partner</div><p>A long-standing partner of the global firm, advising on culture, diversity and cross-border leadership.</p></div>
+        <div class="person"><div class="pin">RQ</div><h3>Rui Guedes de Quinhones</h3><div class="role">Managing Partner</div><p>Advises clients on board structures and effective governance across European markets.</p></div>
+        <div class="person"><div class="pin">JI</div><h3>Juan Infante</h3><div class="role">Partner</div><p>Specialises in consumer and customer-experience leadership across the firm's international practice.</p></div>
+        <div class="person"><div class="pin">MD</div><h3>Michelle DesChenes</h3><div class="role">Partner, Human Capital</div><p>Leads human capital and CHRO search within the firm's retained executive search practice.</p></div>
+        <div class="person"><div class="pin">SG</div><h3>Shekhar Ganapathy</h3><div class="role">Partner, Technology</div><p>Brings two decades in technology-led services, strengthening the firm's research and search capability.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== OFFICES ====================== -->
+<section class="page" id="page-offices">
+  <div class="phead">
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="wrap">
+      <div class="pn">Offices</div>
+      <h1>Global reach, local board judgement.</h1>
+      <p>EMAS operates from Mumbai, drawing on the EMA Partners global network of more than 40 offices across five continents, and its national offices in India.</p>
+    </div>
+  </div>
+
+  <div class="pad">
+    <div class="wrap">
+      <div class="oreg">
+        <h3>India</h3>
+        <div class="ocity">
+          <span><b>HQ</b>Mumbai (Nariman Point)</span><span><b>&middot;</b>Mumbai (BKC)</span><span><b>&middot;</b>Delhi NCR</span><span><b>&middot;</b>Bengaluru</span><span><b>&middot;</b>Chennai</span>
+        </div>
+      </div>
+      <div class="oreg">
+        <h3>Asia Pacific</h3>
+        <div class="ocity">
+          <span><b>&middot;</b>Bangalore</span><span><b>&middot;</b>Beijing</span><span><b>&middot;</b>Chennai</span><span><b>&middot;</b>Guangzhou</span><span><b>&middot;</b>Gurgaon</span><span><b>&middot;</b>Kuala Lumpur</span><span><b>&middot;</b>Mumbai</span><span><b>&middot;</b>Seoul</span><span><b>&middot;</b>Shanghai</span><span><b>&middot;</b>Singapore</span><span><b>&middot;</b>Tokyo</span>
+        </div>
+      </div>
+      <div class="oreg">
+        <h3>Americas</h3>
+        <div class="ocity">
+          <span><b>&middot;</b>Bogot&aacute;</span><span><b>&middot;</b>Boston</span><span><b>&middot;</b>Calgary</span><span><b>&middot;</b>Chicago</span><span><b>&middot;</b>Lima</span><span><b>&middot;</b>Mexico City</span><span><b>&middot;</b>Miami</span><span><b>&middot;</b>Montreal</span><span><b>&middot;</b>New York</span><span><b>&middot;</b>S&atilde;o Paulo</span><span><b>&middot;</b>Toronto</span>
+        </div>
+      </div>
+      <div class="oreg">
+        <h3>Europe, Middle East and Africa</h3>
+        <div class="ocity">
+          <span><b>&middot;</b>Amsterdam</span><span><b>&middot;</b>Barcelona</span><span><b>&middot;</b>Brussels</span><span><b>&middot;</b>Copenhagen</span><span><b>&middot;</b>Durban</span><span><b>&middot;</b>D&uuml;sseldorf</span><span><b>&middot;</b>Helsinki</span><span><b>&middot;</b>Johannesburg</span><span><b>&middot;</b>Lisbon</span><span><b>&middot;</b>London</span><span><b>&middot;</b>Milan</span><span><b>&middot;</b>Moscow</span><span><b>&middot;</b>Paris</span><span><b>&middot;</b>Reykjavik</span><span><b>&middot;</b>Riyadh</span><span><b>&middot;</b>Stockholm</span><span><b>&middot;</b>Warsaw</span><span><b>&middot;</b>Z&uuml;rich</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== INSIGHTS ====================== -->
+<section class="page" id="page-insights">
+  <div class="phead">
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="wrap">
+      <div class="pn">Insights</div>
+      <h1>Introduced by our thinking.</h1>
+      <p>Authority in board work is earned through published thinking, senior relationships and a small number of visible, well handled mandates, never through paid acquisition.</p>
+    </div>
+  </div>
+
+  <div class="pad">
+    <div class="wrap">
+      <div class="study">
+        <div class="tg">Flagship governance study</div>
+        <div class="tt">The Future of Boards</div>
+        <p class="ds">A survey of the unusual board constructs now emerging across India's leading companies, jointly authored and shared with the directors who shape them.</p>
+        <span class="more" data-page="page-contact">Register your interest &nbsp;&rarr;</span>
+      </div>
+
+      <div class="ins-list">
+        <div class="ins-item"><div class="d">Perspective</div><h4>Why board hiring is not CXO hiring</h4></div>
+        <div class="ins-item"><div class="d">Perspective</div><h4>The expanding board universe in India</h4></div>
+        <div class="ins-item"><div class="d">Perspective</div><h4>Making the annual evaluation worth acting on</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CONTACT ====================== -->
+<section class="page" id="page-contact">
+  <div class="phead">
+    <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="wrap">
+      <div class="pn">Contact</div>
+      <h1>Request an introduction.</h1>
+      <p>For chairpersons, promoters and nomination committees considering board composition, evaluation or governance as a serious, independent exercise.</p>
+    </div>
+  </div>
+
+  <div class="pad">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <p style="color:var(--ink-2);max-width:46ch;margin-bottom:1.8rem">Write to us and we will arrange a confidential conversation with the right partner.</p>
+          <a class="btn btn-primary" href="mailto:saraff@stair.digital?subject=Introduction%20EMAS%20Board%20Services">Write to us</a>
+        </div>
+        <div>
+          <div class="ctb">
+            <div class="ctr"><span class="k">Contact</span><span class="v">Shubham Saraff</span></div>
+            <div class="ctr"><span class="k">Email</span><span class="v"><a href="mailto:saraff@stair.digital">saraff@stair.digital</a></span></div>
+            <div class="ctr"><span class="k">Telephone</span><span class="v"><a href="tel:+919930220342">+91 99302 20342</a></span></div>
+            <div class="ctr"><span class="k">Registered office</span><span class="v">42 Free Press House, Nariman Point,<br>Mumbai 400021</span></div>
+            <div class="ctr"><span class="k">India reach</span><span class="v">Mumbai &middot; Delhi NCR &middot; Bengaluru &middot; Chennai</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
 <footer class="site">
   <div class="wrap">
-    <div>
-      <div class="brand mark">
-        <span class="name">EMAS</span>
-        <span class="sub">Board Services</span>
-      </div>
-      <div class="endorse">An EMA Partners and STAIR Digital venture</div>
+    <div style="max-width:300px">
+      <div class="mark"><span class="nm">EMAS</span><span class="sb">Board Services</span></div>
+      <div class="endorse">An EMA Partners and STAIR Digital venture. India owned, board led.</div>
     </div>
-    <div class="addr">
-      42 Free Press House, 215 Free Press Journal Marg<br>
-      Nariman Point, Mumbai, Maharashtra 400021<br>
+    <div class="fcol">
+      <h5>Explore</h5>
+      <a data-page="page-about">About</a>
+      <a data-page="page-services">Services</a>
+      <a data-page="page-expertise">Expertise</a>
+      <a data-page="page-consultants">Consultants</a>
+    </div>
+    <div class="fcol">
+      <h5>More</h5>
+      <a data-page="page-offices">Offices</a>
+      <a data-page="page-insights">Insights</a>
+      <a data-page="page-contact">Contact</a>
+    </div>
+    <div class="fcol">
+      <h5>Connect</h5>
       <a href="mailto:saraff@stair.digital">saraff@stair.digital</a>
-    </div>
-    <div class="fine">
-      <span>&copy; 2026 EMAS Board Services. India owned, board led.</span>
-      <span>The right board, independently found and honestly assessed.</span>
+      <a href="tel:+919930220342">+91 99302 20342</a>
+      <a>42 Free Press House, Nariman Point, Mumbai 400021</a>
     </div>
   </div>
+  <div class="wrap"><div class="fine">
+    <span>&copy; 2026 EMAS Board Services.</span>
+    <span>The right board, independently found and honestly assessed.</span>
+  </div></div>
 </footer>
 
 <script>
-  // nav scroll state
-  const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
-  onScroll();
-  window.addEventListener('scroll', onScroll, {passive:true});
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>40);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
 
-  // mobile menu
-  const btn = document.getElementById('menuBtn');
-  const links = document.getElementById('navlinks');
-  btn.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    nav.classList.toggle('menu-open', open);
-    btn.setAttribute('aria-expanded', open);
-  });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    links.classList.remove('open');
-    nav.classList.remove('menu-open');
-    btn.setAttribute('aria-expanded', false);
+  const linksWrap=document.getElementById('navlinks'),menuBtn=document.getElementById('menuBtn');
+  menuBtn.addEventListener('click',()=>{const o=linksWrap.classList.toggle('open');nav.classList.toggle('menu-open',o);menuBtn.setAttribute('aria-expanded',o);});
+
+  // ROUTER
+  const pages=document.querySelectorAll('.page');
+  const routeLinks=document.querySelectorAll('[data-page]');
+  function closeMenu(){linksWrap.classList.remove('open');nav.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded',false);}
+  function show(id){
+    if(!document.getElementById(id))id='page-home';
+    pages.forEach(p=>p.classList.toggle('active',p.id===id));
+    document.querySelectorAll('nav.links a[data-page]').forEach(a=>a.classList.toggle('active',a.getAttribute('data-page')===id));
+    window.scrollTo(0,0);
+    try{history.replaceState(null,'',id==='page-home'?'#':('#'+id));}catch(e){}
+    closeMenu();
+  }
+  routeLinks.forEach(a=>a.addEventListener('click',e=>{
+    const id=a.getAttribute('data-page');
+    if(id){e.preventDefault();show(id);}
   }));
+  const startId=(location.hash&&document.getElementById(location.hash.slice(1)))?location.hash.slice(1):'page-home';
+  show(startId);
+  window.addEventListener('hashchange',()=>{const id=(location.hash&&document.getElementById(location.hash.slice(1)))?location.hash.slice(1):'page-home';show(id);});
 
-  // scroll reveal
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduce && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  // hero crossfade
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    const shots=document.querySelectorAll('#heroR .shot');let i=0;
+    if(shots.length>1){setInterval(()=>{shots[i].classList.remove('active');i=(i+1)%shots.length;shots[i].classList.add('active');},6000);}
   }
 </script>
 </body>
