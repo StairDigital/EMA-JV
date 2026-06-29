@@ -5,30 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EMAS Board Services, India owned board search, evaluation and governance</title>
 <meta name="description" content="EMAS Board Services is an India owned board search, evaluation and governance partner, a joint venture between EMA Partners and STAIR Digital, backed by a global network of 200+ consultants across 40+ offices." />
-<script>document.documentElement.className += ' js';
-  // interactive disciplines
-  (function(){
-    var d=document.getElementById('disc'); if(!d) return;
-    var items=[].slice.call(d.querySelectorAll('.disc-item'));
-    function set(el){items.forEach(function(x){x.classList.toggle('active',x===el);});}
-    items.forEach(function(it){
-      it.addEventListener('click',function(){set(it);});
-      it.addEventListener('mouseenter',function(){set(it);});
-      it.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();set(it);}});
-    });
-  })();
-
-  // interactive service chips
-  [].forEach.call(document.querySelectorAll('.ftags'),function(tags){
-    var note=document.getElementById(tags.getAttribute('data-target'));
-    var chips=[].slice.call(tags.querySelectorAll('.chip'));
-    function sel(c){chips.forEach(function(x){x.classList.toggle('active',x===c);});if(note)note.textContent=c.getAttribute('data-note');}
-    chips.forEach(function(c){
-      c.addEventListener('click',function(){sel(c);});
-      c.addEventListener('mouseenter',function(){sel(c);});
-    });
-  });
-</script>
+<script>document.documentElement.className += ' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -332,7 +309,7 @@
   .js .chip{cursor:pointer;}
   .js .chip.active{background:var(--ink);color:var(--bone);border-color:var(--ink);}
   .js .chip:not(.active):hover{border-color:var(--ink);color:var(--ink);}
-  .fnote{margin-top:1.1rem!important;color:var(--ink-2);font-size:.96rem;line-height:1.5;border-left:2px solid var(--gold);padding-left:.95rem;min-height:3em;}
+  .fnote{margin-top:1.1rem!important;color:var(--ink-2);font-size:.96rem;line-height:1.5;border-left:2px solid var(--gold);padding-left:.95rem;min-height:3em;transition:opacity .2s ease;}
   .flink{display:inline-block;margin-top:1.5rem;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);cursor:pointer;}
   .flink:hover{color:var(--ink);}
 
@@ -563,7 +540,6 @@
         <p>Independent search for independent directors, committee chairs and the wider director universe, identified, referenced and assessed for fit with promoter, board and management. Search led, never a personal favour.</p>
         <div class="ftags" data-target="fnote1"><button class="chip active" data-note="Genuinely independent non executive directors, sourced and referenced for fit with promoter, board and management.">Independent directors</button><button class="chip" data-note="Audit, nomination, remuneration and risk committee chairs with the standing the role demands.">Committee chairs</button><button class="chip" data-note="Structure and talent for family councils and advisory boards that sit alongside the main board.">Family and advisory boards</button><button class="chip" data-note="Senior figures for emeritus, mentor and non executive seats that add ballast to a board.">Emeritus and non executive seats</button></div>
         <p class="fnote" id="fnote1">Genuinely independent non executive directors, sourced and referenced for fit with promoter, board and management.</p>
-        <a class="flink" data-page="page-contact" href="#page-contact">Request an introduction &rarr;</a>
       </div>
     </div>
     <div class="feature rev">
@@ -574,7 +550,6 @@
         <p>Composition strategy, annual board evaluation, strategic governance advisory and compensation advice, built to produce insight a board can act on rather than a filing it can store. Advice and execution, from one team.</p>
         <div class="ftags" data-target="fnote2"><button class="chip active" data-note="Skill matrix, gap analysis and a board structure mapped to strategy, ownership and regulation.">Composition strategy</button><button class="chip" data-note="Annual evaluation that produces insight a board can act on, not a filing it stores.">Board evaluation</button><button class="chip" data-note="IPO and capital readiness, promoter alignment and governance for AI led transformation.">Governance advisory</button><button class="chip" data-note="Benchmarked director pay, committee differentials and defensible board charters.">Compensation advisory</button></div>
         <p class="fnote" id="fnote2">Skill matrix, gap analysis and a board structure mapped to strategy, ownership and regulation.</p>
-        <a class="flink" data-page="page-contact" href="#page-contact">Request an introduction &rarr;</a>
       </div>
     </div>
   </div>
@@ -889,6 +864,36 @@
     const shots=document.querySelectorAll('#heroR .shot');let i=0;
     if(shots.length>1){setInterval(()=>{shots[i].classList.remove('active');i=(i+1)%shots.length;shots[i].classList.add('active');},6000);}
   }
+
+  // interactive disciplines
+  (function(){
+    var d=document.getElementById('disc'); if(!d) return;
+    var items=[].slice.call(d.querySelectorAll('.disc-item'));
+    function set(el){items.forEach(function(x){x.classList.toggle('active',x===el);});}
+    items.forEach(function(it){
+      it.addEventListener('click',function(){set(it);});
+      it.addEventListener('mouseenter',function(){set(it);});
+      it.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();set(it);}});
+    });
+  })();
+
+  // interactive service chips
+  [].forEach.call(document.querySelectorAll('.ftags'),function(tags){
+    var note=document.getElementById(tags.getAttribute('data-target'));
+    var chips=[].slice.call(tags.querySelectorAll('.chip'));
+    function sel(c){
+      chips.forEach(function(x){x.classList.toggle('active',x===c);});
+      if(!note) return;
+      var txt=c.getAttribute('data-note');
+      if(note.textContent===txt) return;
+      note.style.opacity='0';
+      setTimeout(function(){note.textContent=txt;note.style.opacity='1';},130);
+    }
+    chips.forEach(function(c){
+      c.addEventListener('click',function(){sel(c);});
+      c.addEventListener('mouseenter',function(){sel(c);});
+    });
+  });
 </script>
 </body>
 </html>
