@@ -794,11 +794,6 @@
     box-shadow:0 8px 24px -12px rgba(0,0,0,.9);}
   .globe-tip.show{opacity:1;}
   .globe-tip b{color:var(--gold-lt);font-weight:700;letter-spacing:.06em;font-size:.64rem;margin-right:.35rem;}
-  .globe-cap{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;
-    margin-top:1.2rem;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
-    color:rgba(248,246,242,.78);}
-  .globe-cap b{color:#fff;margin-right:.4rem;}
-  .globe-hint{color:rgba(248,246,242,.38);}
   .globe-side .atlas-legend{margin-top:0;}
   .globe-side .atlas-cap{margin:1.4rem 0 0;}
   .globe-side .atlas-reg{grid-template-columns:150px 1fr;}
@@ -1278,10 +1273,6 @@ setTimeout(function(){var b=document.getElementById('boot');if(b)b.className='bo
             <canvas id="globeCanvas" role="img" aria-label="Rotating globe showing EMA Partners network offices, with routes from Mumbai"></canvas>
             <div class="globe-veil" id="globeVeil"><span></span></div>
             <div class="globe-tip" id="globeTip" aria-hidden="true"></div>
-          </div>
-          <div class="globe-cap">
-            <span id="globeReadout"><b>HQ</b> Mumbai</span>
-            <span class="globe-hint">Drag to spin &middot; hover a marker</span>
           </div>
         </div>
 
@@ -1833,7 +1824,6 @@ function Re(e,t,r){let a=e.createShader(t);return e.shaderSource(a,r),e.compileS
   var canvas=document.getElementById('globeCanvas'),
       tip=document.getElementById('globeTip'),
       veil=document.getElementById('globeVeil'),
-      readout=document.getElementById('globeReadout'),
       tabsWrap=document.getElementById('atlasTabs'),
       legend=document.getElementById('atlasLegend'),
       acOff=document.getElementById('acOffices'),
@@ -1975,7 +1965,7 @@ function Re(e,t,r){let a=e.createShader(t);return e.shaderSource(a,r),e.compileS
     var c=cityById(id); if(!c) return;
     selId=(selId===id)?null:id;
     dirty=true;paintChips();
-    if(selId){focus(facing(vec(c)));say(c);} else say(null);
+    if(selId)focus(facing(vec(c)));
   }
   function focus(t){
     var p=t.phi;
@@ -1983,11 +1973,6 @@ function Re(e,t,r){let a=e.createShader(t);return e.shaderSource(a,r),e.compileS
     while(p-phi<-PI)p+=2*PI;
     tPhi=p;tTheta=t.theta;
     if(RM){phi=p;theta=t.theta;tPhi=null;}
-  }
-  function say(c){
-    if(!readout) return;
-    readout.innerHTML=c?((c.hq?'<b>HQ</b> ':'')+c.n+' &middot; '+c.r)
-      :(region==='all'?'<b>HQ</b> Mumbai':region);
   }
 
   /* ---- tooltip, positioned from cobe's own projection anchors ---- */
@@ -2071,7 +2056,7 @@ function Re(e,t,r){let a=e.createShader(t);return e.shaderSource(a,r),e.compileS
   stage.addEventListener('pointerup',function(e){
     var wasDrag=dragging&&Math.abs(vPhi)>0.004;
     endDrag();
-    if(!wasDrag){var c=hit(e);if(c)select(c.id);else if(selId){selId=null;dirty=true;paintChips();say(null);}}
+    if(!wasDrag){var c=hit(e);if(c)select(c.id);else if(selId){selId=null;dirty=true;paintChips();}}
   });
   stage.addEventListener('pointercancel',endDrag);
   window.addEventListener('blur',endDrag);
@@ -2089,7 +2074,6 @@ function Re(e,t,r){let a=e.createShader(t);return e.shaderSource(a,r),e.compileS
         b.style.display=(region==='all'||b.getAttribute('data-region')===region)?'':'none';});
       var list=region==='all'?cities:cities.filter(function(c){return c.r===region;});
       focus(facing(centroid(list)));
-      say(null);
     });
   });
 
@@ -2172,7 +2156,7 @@ function Re(e,t,r){let a=e.createShader(t);return e.shaderSource(a,r),e.compileS
     },220);
   },{passive:true});
 
-  say(null);paintChips();
+  paintChips();
 })();
 
 </script>
